@@ -480,6 +480,7 @@ ul {
     border-radius: 15px;
     background: #272727;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.11);
+    cursor: pointer;
 }
 
 .features .content i {
@@ -2030,6 +2031,7 @@ ul {
     background: #333;
     color: #fff;
     border-radius: 50%;
+    padding: 0 0;
 }
 
 .pagination li .active {
@@ -2134,6 +2136,7 @@ footer .wrap-desc {
 
 footer .wrap-desc p {
     color: #fff;
+    font-style: italic;
 }
 
 footer .wrap-logo h3 {
@@ -2174,4 +2177,20 @@ footer .footer-text {
 
 footer .footer-text p {
     color: #fff;
+}
+
+.flag-img {
+  width: 24px !important;
+  display: inline-block;
+  margin-right: 5px;
+  border-radius: 0 !important;
+}
+
+.logo-img-footer {
+  width: 80px !important;
+  margin-right: 0 !important;
+}
+
+.image-frame {
+  padding: 2em 2em 2em 2em;
 }

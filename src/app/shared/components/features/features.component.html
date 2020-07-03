@@ -3,29 +3,29 @@
   <div class="container">
     <div class="row">
       <div class="col s6">
-        <div class="content">
-          <i class="fas fa-phone bg-red"></i>
-          <h5>Support</h5>
+        <div class="content" (click)="navigate('competition')">
+          <i class="fas fa-medal bg-red"></i>
+          <h5>Competitions</h5>
         </div>
       </div>
       <div class="col s6">
-        <div class="content">
+        <div class="content" (click)="navigate('/match')">
           <i class="fas fa-globe-europe bg-purple"></i>
-          <h5>Online</h5>
+          <h5>Matches</h5>
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col s6">
-        <div class="content">
-          <i class="fas fa-check bg-blue"></i>
-          <h5>Clean</h5>
+        <div class="content" (click)="navigate('/team')">
+          <i class="fas fa-users bg-blue"></i>
+          <h5>Teams</h5>
         </div>
       </div>
       <div class="col s6">
-        <div class="content">
-          <i class="fas fa-sync-alt bg-orange"></i>
-          <h5>Update</h5>
+        <div class="content" (click)="navigate('/area')">
+          <i class="fas fa-map-pin bg-orange"></i>
+          <h5>Areas</h5>
         </div>
       </div>
     </div>
