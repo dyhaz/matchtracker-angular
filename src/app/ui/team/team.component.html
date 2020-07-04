@@ -1,6 +1,6 @@
 <div class="event segments-page">
   <div class="container">
-    <div class="content" *ngFor="let team of listTeam.teams?.slice(begin, end)">
+    <div class="content" *ngFor="let team of listTeam.teams?.slice(begin, end); let i = index">
       <div class="image-frame"><img src="{{team.crestUrl ? team.crestUrl : 'assets/images/event1.jpg'}}" alt="{{team.shortName}}"></div>
       <div class="text">
         <h4><a href="javascript:void(0)" (click)="navigate('/team/' + team.id)">{{team.name}}</a></h4>
@@ -9,7 +9,7 @@
           <span><i class="fas fa-ellipsis-v"></i></span><span><i class="fas fa-link"></i><a href="{{team.website}}" target="_blank">{{team.website}}</a></span>
           <!--<a href="javascript:void(0)"
           (click)="navigate('/team/byLeague/' + team.idLeague)">{{team.strLeague}}</a>--></p>
-        <p>{{truncate(team.name)}}</p>
+        <p><app-spinner [isActive]="teamDescs[i] | isEmpty"></app-spinner>{{truncate(teamDescs[i])}}</p>
       </div>
     </div>
     <div class="pagination">

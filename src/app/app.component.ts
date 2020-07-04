@@ -33,6 +33,8 @@ export class AppComponent implements OnInit{
     if (promise) {
       promise.finally(() => {
         Swal.close();
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
       });
       return promise;
     }

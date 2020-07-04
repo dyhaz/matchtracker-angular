@@ -1,0 +1,120 @@
+<!-- about -->
+<div class="about segments-page">
+  <div class="container">
+    <div class="content-image hide-on-large-only">
+      <div class="image-frame"><img [src]="team?.crestUrl
+       ? team.crestUrl : alternateImage" alt="{{team?.shortName}}"></div>
+    </div>
+    <div class="content-text">
+      <h4>{{team?.name}}</h4>
+      <div class="row">
+        <div class="col l4 hide-on-med-and-down">
+          <img width="100%" [src]="team?.crestUrl
+          ? team.crestUrl : alternateImage" alt="{{team?.shortName}}">
+        </div>
+        <div class="col s12 l8">
+          <app-spinner [isActive]="teamDescription | isEmpty"></app-spinner><p [innerHTML]="teamDescription"></p>
+        </div>
+      </div>
+    </div>
+    <div class="content-features">
+      <div class="row">
+        <div class="col s4">
+          <div class="content">
+            <i class="fas fa-heart bg-red"></i>
+            <h6>Favorite</h6>
+          </div>
+        </div>
+        <div class="col s4">
+          <a href="{{team?.website}}" target="_blank">
+            <div class="content">
+              <i class="fas fa-globe-europe bg-purple"></i>
+              <h6>Website</h6>
+            </div>
+          </a>
+        </div>
+        <div class="col s4">
+          <div class="content">
+            <i class="fas fa-share bg-blue"></i>
+            <h6>Share</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end about -->
+
+<!-- counter -->
+<div class="counter segments">
+  <div class="container">
+    <div class="row">
+      <div class="col s3">
+        <div class="content">
+          <h3 class="numscroller" data-min="1" data-max="1030" data-delay="10" data-increment="2">
+            <app-spinner [isActive]="finished | isEmpty"></app-spinner>{{finished ? finished.count : ''}}</h3>
+          <h4>Played</h4>
+        </div>
+      </div>
+      <div class="col s3">
+        <div class="content">
+          <h3 class="numscroller" data-min="1" data-max="154" data-delay="10" data-increment="2">
+            <app-spinner [isActive]="finished | isEmpty"></app-spinner>{{finished ? wins : ''}}</h3>
+          <h4>Wins</h4>
+        </div>
+      </div>
+      <div class="col s3">
+        <div class="content">
+          <h3 class="numscroller" data-min="1" data-max="900" data-delay="10" data-increment="2">
+            <app-spinner [isActive]="finished | isEmpty"></app-spinner>{{finished ? draws : ''}}</h3>
+          <h4>Draws</h4>
+        </div>
+      </div>
+      <div class="col s3">
+        <div class="content">
+          <h3 class="numscroller" data-min="1" data-max="50" data-delay="10" data-increment="2">
+            <app-spinner [isActive]="finished | isEmpty"></app-spinner>{{finished ? loses : ''}}</h3>
+          <h4>Loses</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end counter -->
+
+<!-- member -->
+<div class="teacher segments">
+  <div class="container">
+    <div class="row" *ngFor="let squad of team?.squad.slice(0, team?.squad.length / 2 + 0.5); let i = index">
+      <div class="col s6">
+        <div class="content">
+          <img [src]="'https://dummyimage.com/600x400/ffffff/000.png&text=' + team?.squad[( i * 2 )].shirtNumber"
+               alt="{{ team?.squad[( i * 2 )].name }}">
+          <div class="text">
+            <a href="javascript:void(0)"><h5>{{ team?.squad[( i * 2 )].name }}</h5></a>
+            <span>{{ team?.squad[( i * 2 )].position }}</span>
+<!--            <div class="wrap-social">-->
+<!--              <ul>-->
+<!--                <li><a href=""><i class="fab fa-facebook-f"></i></a></li>-->
+<!--                <li><a href=""><i class="fab fa-twitter"></i></a></li>-->
+<!--                <li><a href=""><i class="fab fa-google"></i></a></li>-->
+<!--                <li><a href=""><i class="fab fa-linkedin-in"></i></a></li>-->
+<!--              </ul>-->
+<!--            </div>-->
+          </div>
+        </div>
+      </div>
+      <div class="col s6" [hidden]="team.squad.length == ( i * 2 ) + 1">
+        <div class="content">
+          <img [src]="'https://dummyimage.com/600x400/ffffff/000.png&text=' + team?.squad[( i * 2 ) + 1]?.shirtNumber"
+               alt="{{ team?.squad[( i * 2 ) + 1]?.name }}">
+          <div class="text">
+            <a href="javascript:void(0)"><h5>{{ team?.squad[( i * 2 ) + 1]?.name}}</h5></a>
+            <span>{{ team?.squad[( i * 2 ) + 1]?.position }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end member -->

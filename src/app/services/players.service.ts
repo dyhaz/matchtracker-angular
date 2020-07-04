@@ -13,17 +13,20 @@ export class PlayersService {
     method: 'GET', // GET, POST, PUT, DELETE
   };
 
-  constructor() { }
+  constructor() {
+    this.opts.headers = new Headers();
+    this.opts.headers.append('X-Auth-Token', this.env.apiToken);
+  }
 
   getPlayers(idTeam: number) {
     return from(
-      fetch(`${this.env.apiUrl}lookup_all_players.php?id=${idTeam}`, {...this.opts})
+      fetch(`${this.env.apiUrl}teams/${idTeam}/players`, {...this.opts})
     ).pipe(map(response => response.json()));
   }
 
-  getPlayerDetail(id: number) {
+  getPlayer(id: number) {
     return from(
-      fetch(`${this.env.apiUrl}lookupplayer.php?id=${id}`, {...this.opts})
+      fetch(`${this.env.apiUrl}players/${id}`, {...this.opts})
     ).pipe(map(response => response.json()));
   }
 }

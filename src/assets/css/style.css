@@ -171,6 +171,35 @@ ul {
     color: #8381e3;
 }
 
+.color-indigo6 {
+  color: #9593f5;
+}
+
+.color-indigo7 {
+  color: #adb1f9;
+}
+
+.color-indigo8 {
+  color: #bdc1f9;
+}
+
+.color-indigo9 {
+  color: #d2d7f9;
+}
+
+@font-face {
+  font-family: 'Lobster';
+  src: url('../fonts/Lobster-Regular.ttf')  format('truetype');
+}
+
+.logo-nav {
+  font-family: "Lobster",sans-serif;
+}
+
+.logo-nav img {
+  margin-right: 9px;
+}
+
 .bg-red {
     background: linear-gradient(200deg, #ff5e3a, #ff2a68);
 }
@@ -1621,6 +1650,7 @@ ul {
     border-radius: 15px;
     background: #272727;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.11);
+    cursor: pointer;
 }
 
 .about .content-features .content i {
@@ -1635,7 +1665,7 @@ ul {
 
 /*counter*/
 .counter {
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../images/slider1.jpg);
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../images/stadium1.jpg);
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -2031,6 +2061,8 @@ ul {
     background: #333;
     color: #fff;
     border-radius: 50%;
+
+    /* Update: 03-07-2020 */
     padding: 0 0;
 }
 

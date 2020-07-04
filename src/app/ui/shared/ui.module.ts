@@ -20,6 +20,9 @@ import {TeamComponent} from '../team/team.component';
 import {SweetAlert2Module} from '@sweetalert2/ngx-sweetalert2';
 import {AppModule} from '../../app.module';
 import {ErrorMessageComponent} from '../../shared/components/error-message/error-message.component';
+import {CircularSpinnerComponent} from '../../shared/components/spinner/circular-spinner.component';
+import {IsEmptyPipe} from '../../shared/pipes/is-empty.pipe';
+import {TeamSingleComponent} from '../team-single/team-single.component';
 
 @NgModule({
   imports: [
@@ -36,11 +39,17 @@ import {ErrorMessageComponent} from '../../shared/components/error-message/error
     BlogSingleComponent,
     AreaComponent,
     TeamComponent,
+    TeamSingleComponent,
     SliderComponent,
     PopularComponent,
     TestimonialComponent,
     FeaturesComponent,
-    LatestNewsComponent
+    LatestNewsComponent,
+    CircularSpinnerComponent,
+    /**
+     * Pipes
+     */
+    IsEmptyPipe,
   ],
   exports: [
   ],

@@ -35,4 +35,16 @@ export class TeamsService {
       fetch(`${this.env.apiUrl}teams/${id}`, {...this.opts})
     ).pipe(map(response => response.json()));
   }
+
+  getTeamDescription(teamName: string) {
+    return from(
+      fetch(`${this.env.wikiApiUrl}page/mobile-sections/${teamName}`)
+    ).pipe(map(response => response.json()));
+  }
+
+  getTeamPerformances(idTeam: number, status = 'SCHEDULED') {
+    return from(
+      fetch(`${this.env.apiUrl}teams/${idTeam}/matches?status=${status}`, {...this.opts})
+    ).pipe(map(response => response.json()));
+  }
 }

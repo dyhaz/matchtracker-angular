@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
 import {AppBaseComponent} from '../../app.base.component';
@@ -7,14 +7,15 @@ import {AppComponent} from '../../app.component';
 import StringUtils from '../../shared/helpers/string-utils';
 
 @Component({
-  selector: 'app-area',
+  selector: 'app-team',
   templateUrl: './team.component.html'
 })
-export class TeamComponent extends AppBaseComponent implements OnInit, AfterViewInit {
-  title = 'area';
+export class TeamComponent extends AppBaseComponent implements OnInit, AfterViewInit, OnDestroy {
+  title = 'team';
   listTeam: any = [];
 
   itemsPerPage = 3;
+  teamDescs: any = new Array(this.itemsPerPage).fill('');
   currentPage = 0;
   pages = [];
   begin = 0;
@@ -56,30 +57,60 @@ export class TeamComponent extends AppBaseComponent implements OnInit, AfterView
     this.currentPage = page - 1;
     this.begin = ((this.currentPage) * this.itemsPerPage);
     this.end = this.begin + this.itemsPerPage;
+    this.showDescriptions();
+  }
+
+  showDescriptions() {
+    this.teamDescs = new Array(this.itemsPerPage).fill('');
+
+    if (this.listTeam.teams) {
+      this.listTeam.teams.slice(this.begin, this.end).forEach((team, key) => {
+        this.teamService.getTeamDescription(team.name).subscribe(res => {
+          res.then(val => {
+            this.teamDescs[key] = val.lead.sections[0].text.replace(/<[^>]*>/g, '').replace(/\(listen\)/g, '');
+          });
+        });
+      });
+    }
   }
 
   processRequest(result: Promise<any>): void {
     this.app.showLoading(result);
+
     result.then(value => {
       this.listTeam = value;
       this.createPagination();
     });
-    result.catch(error => {
+
+    result.catch(() => {
       this.app.toggleError();
     });
   }
 
   ngAfterViewInit(): void {
     this.app.showLoading();
+
     if (this.activatedRoute.snapshot.paramMap.get('league')) {
+      /**
+       * List teams by league
+       */
       const league = parseInt(this.activatedRoute.snapshot.paramMap.get('league'), 10);
       this.teamService.getTeamsByLeague(league).subscribe(res => {
         this.processRequest(res);
       });
     } else {
+      /**
+       * List all teams
+       */
       this.teamService.getTeams().subscribe(res => {
         this.processRequest(res);
       });
     }
   }
+
+  ngOnDestroy(): void {
+    this.teamDescs = [];
+    this.listTeam = [];
+  }
+
 }
