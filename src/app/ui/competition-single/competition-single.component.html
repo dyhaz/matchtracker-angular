@@ -1,0 +1,118 @@
+<!-- about -->
+<div class="about segments-page">
+  <div class="container">
+    <div class="content-image hide-on-large-only">
+      <div class="image-frame"><img class="emblem" [src]="competition?.emblemUrl
+       ? competition.emblemUrl : 'assets/images/emblems/' + competition?.code + '.png'" alt="{{competition?.name}}"></div>
+    </div>
+    <div class="content-text">
+      <h4 class="hide-on-large-only">{{competition?.name}}</h4>
+      <div class="row">
+        <div class="col l4 hide-on-med-and-down">
+          <img width="100%" [src]="competition?.emblemUrl
+       ? competition.emblemUrl : 'assets/images/emblems/' + competition?.code + '.png'" alt="{{competition?.name}}">
+        </div>
+        <div class="col s12 l8">
+          <app-spinner [isActive]="competitionDescription | isEmpty"></app-spinner><p [innerHTML]="competitionDescription"></p>
+        </div>
+      </div>
+    </div>
+    <div class="content-features">
+      <div class="row">
+        <div class="col s4">
+          <a href="javascript:void(0)" (click)="favorite()">
+            <div [appFadeIn] [ngClass]="['content', 'waves-effect', 'waves-light']">
+              <span class="bg-rainbow"></span>
+              <i [ngClass]="['fas','fa-heart','bg-red']"></i>
+              <h6>Favorite</h6>
+            </div>
+          </a>
+        </div>
+        <div class="col s4">
+          <a href="javascript:void(0)">
+            <div [appFadeIn] [highlightColor]="'#ff5e3a'" [ngClass]="['content', 'waves-effect', 'waves-light']">
+              <i class="fas fa-bell bg-orange"></i>
+              <h6>Notify</h6>
+            </div>
+          </a>
+        </div>
+        <div class="col s4">
+          <a class="modal-trigger" href="javascript:void(0)" (click)="share()">
+            <div [ngClass]="['content', 'waves-effect', 'waves-light']">
+              <i class="fas fa-share bg-blue"></i>
+              <h6>Share</h6>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end about -->
+
+<!-- counter -->
+<div class="counter segments">
+  <div class="container">
+    <div class="row">
+      <div class="col s12">
+        <div class="content center-align">
+          <h2 class="logo-nav">Today Matches</h2>
+        </div>
+      </div>
+    </div>
+    <app-spinner [isActive]="compMatches | isEmpty"></app-spinner>
+    <div class="row" *ngFor="let match of compMatches">
+      <div class="col s12">
+
+        <!-- Time -->
+        <div class="row valign-wrapper" style="padding-top: 35px; padding-bottom: 10px">
+          <div class="col s12">
+            <div [ngClass]="['content', 'match-hour', 'bg-' + compColors[competition.id]]" style="padding: 10px 0">
+              <h4>{{match.utcDate | hourFormat}}</h4>
+            </div>
+          </div>
+        </div>
+
+        <!-- Logo -->
+        <div class="row valign-wrapper timeline-logo">
+          <div class="col s6">
+            <div class="content">
+              <h5 class="numscroller" data-min="1" data-max="1030" data-delay="10" data-increment="2">
+                <app-spinner [isActive]="match.awayTeam.crestUrl | isEmpty"></app-spinner>
+                <img [hidden]="match.awayTeam.crestUrl | isEmpty"
+                     [src]="match.awayTeam.crestUrl" alt="logo" class="match-team-logo" /></h5>
+            </div>
+          </div>
+          <div class="col s6">
+            <div class="content">
+              <h5 class="numscroller" data-min="1" data-max="154" data-delay="10" data-increment="2">
+                <app-spinner [isActive]="match.homeTeam.crestUrl | isEmpty"></app-spinner>
+                <img [hidden]="match.homeTeam.crestUrl | isEmpty"
+                     [src]="match.homeTeam.crestUrl" alt="logo" class="match-team-logo"/></h5>
+            </div>
+          </div>
+        </div>
+
+        <!-- Team Name -->
+        <div class="row valign-wrapper timeline-team-name">
+          <div class="col s6">
+            <div class="content">
+              <h4 (click)="navigate('/team/' + match.awayTeam.id)">{{ match.awayTeam.shortName }}</h4>
+            </div>
+          </div>
+          <div class="col s6">
+            <div class="content">
+              <h4 (click)="navigate('/team/' + match.homeTeam.id)">{{ match.homeTeam.shortName }}</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end counter -->
+
+<!-- compDetail -->
+<!-- end compDetail -->
+
+<app-no-match-message #message></app-no-match-message>

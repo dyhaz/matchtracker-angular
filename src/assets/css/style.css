@@ -228,6 +228,16 @@ ul {
     background: linear-gradient(200deg, #87fc70, #0bd318);
 }
 
+.bg-sky {
+  background: linear-gradient(200deg, #00bfff, #87cefa);
+}
+
+.bg-rainbow {
+  background-image: url("../images/gradient1.jpg") !important;
+  background-repeat: initial !important;
+  background-position: center !important;
+}
+
 /*button default*/
 .button {
     background: #3f51b5;
@@ -991,6 +1001,11 @@ ul {
     border-radius: 15px;
 }
 
+.emblem {
+  padding: 2em 2em 2em 2em;
+  background-color: white;
+}
+
 .teacher .content .text {
     margin-top: 13px;
     text-align: center;
@@ -1301,6 +1316,8 @@ ul {
     border-radius: 15px;
     background: #272727;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.11);
+    display: block !important;
+    height: 103px;
 }
 
 .event-single .content-features .content i {
@@ -1651,6 +1668,8 @@ ul {
     background: #272727;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.11);
     cursor: pointer;
+    display: block !important;
+    height: 103px;
 }
 
 .about .content-features .content i {
@@ -2225,4 +2244,28 @@ footer .footer-text p {
 
 .image-frame {
   padding: 2em 2em 2em 2em;
+}
+
+.area-info {
+  display: inline-flex;
+}
+
+.area-info span {
+  padding-top: 3px;
+}
+
+.match-team-logo {
+  padding: 1em 1em 1em 1em;
+  width: 100%;
+}
+
+.match-hour {
+  border-radius: 15px;
+  -webkit-box-shadow: 0 3px 3px 2px #323232;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+  -moz-box-shadow:    0 3px 3px 2px #323232;  /* Firefox 3.5 - 3.6 */
+  box-shadow: 0 3px 3px 2px #000000;
+  border-color: white;
+  border-style: solid;
+  border-width: 0.2em;
+  border-bottom: thick;
 }

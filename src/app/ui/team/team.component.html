@@ -1,7 +1,8 @@
 <div class="event segments-page">
   <div class="container">
     <div class="content" *ngFor="let team of listTeam.teams?.slice(begin, end); let i = index">
-      <div class="image-frame"><img src="{{team.crestUrl ? team.crestUrl : 'assets/images/event1.jpg'}}" alt="{{team.shortName}}"></div>
+      <div class="image-frame hide-on-large-only"><img src="{{team.crestUrl ? team.crestUrl : 'assets/images/event1.jpg'}}" alt="{{team.shortName}}"></div>
+      <div class="hide-on-med-and-down show-on-large"><img style="width: 20% !important;" src="{{team.crestUrl ? team.crestUrl : 'assets/images/event1.jpg'}}" alt="{{team.shortName}}"></div>
       <div class="text">
         <h4><a href="javascript:void(0)" (click)="navigate('/team/' + team.id)">{{team.name}}</a></h4>
         <p class="date valign-wrapper">

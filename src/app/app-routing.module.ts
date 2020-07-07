@@ -6,6 +6,8 @@ import {BlogSingleComponent} from './ui/blog/blog-single.component';
 import {AreaComponent} from './ui/area/area.component';
 import {TeamComponent} from './ui/team/team.component';
 import {TeamSingleComponent} from './ui/team-single/team-single.component';
+import {CompetitionComponent} from './ui/competition/competition.component';
+import {CompetitionSingleComponent} from './ui/competition-single/competition-single.component';
 
 const routes: Routes = [
   { path: 'index', component: IndexComponent},
@@ -14,6 +16,8 @@ const routes: Routes = [
   { path: 'area', component: AreaComponent},
   { path: 'team', component: TeamComponent},
   { path: 'team/:team', component: TeamSingleComponent},
+  { path: 'competition', component: CompetitionComponent},
+  { path: 'competition/:competition', component: CompetitionSingleComponent},
   { path: 'team/byLeague/:league', component: TeamComponent},
   { path: '', redirectTo: 'index', pathMatch: 'full'}
 ];

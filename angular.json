@@ -27,6 +27,7 @@
             "styles": [
               "src/styles.css",
               "src/assets/css/materialize.css",
+              "src/assets/css/jquery-ui.min.css",
               "src/assets/css/loader.css",
               "src/assets/css/fontawesome.min.css",
               "src/assets/css/owl.carousel.min.css",
@@ -35,10 +36,11 @@
             ],
             "scripts": [
               "src/assets/js/jquery.min.js",
+              "src/assets/js/jquery-ui.min.js",
               "src/assets/js/materialize.min.js",
               "src/assets/js/owl.carousel.min.js",
-              "src/assets/js/main.js"
-
+              "src/assets/js/main.js",
+              "src/assets/js/social.js"
             ]
           },
           "configurations": {
