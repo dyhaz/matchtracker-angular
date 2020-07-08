@@ -28,6 +28,8 @@ import {ShareButtonsComponent} from '../../shared/components/share-buttons/share
 import {NoMatchMessageComponent} from '../../shared/components/no-match-message/no-match-message.component';
 import {BackgroundFadeInDirective} from '../../shared/directives/background-fade-in.directive';
 import {HttpClientModule} from '@angular/common/http';
+import {MatchComponent} from '../match/match.component';
+import {FavoriteComponent} from '../favorite/favorite.component';
 
 @NgModule({
   imports: [
@@ -48,6 +50,8 @@ import {HttpClientModule} from '@angular/common/http';
     TeamSingleComponent,
     CompetitionComponent,
     CompetitionSingleComponent,
+    MatchComponent,
+    FavoriteComponent,
     NoMatchMessageComponent,
     SliderComponent,
     PopularComponent,

@@ -87,10 +87,11 @@
 <!-- member -->
 <div class="teacher segments">
   <div class="container">
-    <div class="row" *ngFor="let squad of team?.squad.slice(0, team?.squad.length / 2 + 0.5); let i = index">
+    <div class="row" *ngFor="let squad of team?.squad.slice(0, team?.squad.length / 2 + 0.5); let i = index;">
       <div class="col s6">
         <div class="content">
-          <img [src]="'https://dummyimage.com/600x400/ffffff/000.png&text=' + team?.squad[( i * 2 )].shirtNumber"
+          <img [src]="'https://dummyimage.com/600x400/ffffff/000.png&text=' + (team?.squad[( i * 2 )].shirtNumber ?
+          team?.squad[( i * 2 )].shirtNumber : '%20')"
                alt="{{ team?.squad[( i * 2 )].name }}">
           <div class="text">
             <a href="javascript:void(0)"><h5>{{ team?.squad[( i * 2 )].name }}</h5></a>
@@ -108,7 +109,8 @@
       </div>
       <div class="col s6" [hidden]="team.squad.length == ( i * 2 ) + 1">
         <div class="content">
-          <img [src]="'https://dummyimage.com/600x400/ffffff/000.png&text=' + team?.squad[( i * 2 ) + 1]?.shirtNumber"
+          <img [src]="'https://dummyimage.com/600x400/ffffff/000.png&text=' + (team?.squad[( i * 2 ) + 1]?.shirtNumber ?
+          team?.squad[( i * 2 ) + 1]?.shirtNumber : '%20')"
                alt="{{ team?.squad[( i * 2 ) + 1]?.name }}">
           <div class="text">
             <a href="javascript:void(0)"><h5>{{ team?.squad[( i * 2 ) + 1]?.name}}</h5></a>

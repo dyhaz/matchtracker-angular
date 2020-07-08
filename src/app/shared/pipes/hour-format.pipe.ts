@@ -8,7 +8,7 @@ export class HourFormatPipe implements PipeTransform {
     return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
   }
 
-  transform(date: any): string {
+  transform(date: any, showUtc = true): string {
     if (date == null) {
       return '';
     }
@@ -17,7 +17,7 @@ export class HourFormatPipe implements PipeTransform {
     const mins = (new Date(date)).getMinutes();
     const hoursUTC = (new Date(date)).getUTCHours();
     const minsUTC = (new Date(date)).getUTCMinutes();
-    return HourFormatPipe.pad(hours, 2) + ':' + HourFormatPipe.pad(mins, 2) + ' ( ' +
-      HourFormatPipe.pad(hoursUTC, 2) + ':' + HourFormatPipe.pad(minsUTC, 2) + ' UTC )';
+    return HourFormatPipe.pad(hours, 2) + ':' + HourFormatPipe.pad(mins, 2) +
+      (showUtc ? ' (' + HourFormatPipe.pad(hoursUTC, 2) + ':' + HourFormatPipe.pad(minsUTC, 2) + ' UTC)' : '');
   }
 }

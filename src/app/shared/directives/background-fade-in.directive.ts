@@ -32,6 +32,6 @@ export class BackgroundFadeInDirective {
       }
 
       this.selected = !this.selected;
-    }, 10);
+    }, 1);
   }
 }

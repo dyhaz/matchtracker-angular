@@ -1,0 +1,53 @@
+<!-- competition -->
+<div class="segments-page">
+  <div class="container">
+    <div class="competition-matches segments" *ngFor="let comp of listComps; let i = index">
+      <a href="javascript:void(0)" class="competition-title">
+        <div class="competition-name bg-purple section"><h4>&nbsp;&nbsp;{{ comp.name }}</h4></div>
+      </a>
+      <div class="match-row-list">
+        <div class="match-row status-pla">
+          <app-spinner class="section" [isActive]="listMatches[comp.id] == null"></app-spinner>
+          <div class="row valign-wrapper" style="margin: 0 0" *ngFor="let match of listMatches[comp.id];">
+            <div [ngClass]="['col','s3',getColor(match),'valign-wrapper']"
+                 style="height: 98px; margin:  20px 0 20px; justify-content: center">
+              <!--status-->
+              <h2>{{ getTime(match) }}</h2>
+            </div>
+            <div class="col s9">
+              <div class="row" style="margin-top: 20px; margin-left: 10px">
+                <div class="col s2">
+                  <!--goals-->
+                  <h3 [innerHTML]="getGoals(match).homeTeam"></h3>
+                </div>
+                <div class="col s10">
+                  <!--home team name-->
+                  <a href="javascript:void(0)" (click)="navigate('/team/' + match.homeTeam.id)">
+                    <h3>{{ truncate(match.homeTeam.name, 20) }}</h3>
+                  </a>
+                </div>
+              </div>
+              <div class="divider"></div>
+              <div class="row" style="margin-top: 20px; margin-left: 10px">
+                <div class="col s2">
+                  <!--goals-->
+                  <h3 [innerHTML]="getGoals(match).awayTeam"></h3>
+                </div>
+                <div class="col s10">
+                  <!--away team name-->
+                  <a href="javascript:void(0)" (click)="navigate('/team/' + match.awayTeam.id)">
+                    <h3>{{ truncate(match.awayTeam.name, 20)}}</h3>
+                  </a>
+                </div>
+              </div>
+              <div class="divider"></div>
+            </div>
+          </div>
+        </div>
+        <div class="competition-more-link right-align section">
+          <a href="javascript:void(0)" (click)="navigate('/competition/' + comp.id)"> <h5>See Table <i class="fas fa-chevron-right"></i></h5></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

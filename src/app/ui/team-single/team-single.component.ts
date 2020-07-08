@@ -116,6 +116,8 @@ export class TeamSingleComponent extends AppBaseComponent implements OnInit, Aft
       const team = parseInt(this.activatedRoute.snapshot.paramMap.get('team'), 10);
       this.teamService.getTeam(team).subscribe(res => {
         this.processRequest(res);
+      }, () => {
+        this.app.toggleError();
       });
     }
   }

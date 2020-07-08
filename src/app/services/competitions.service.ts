@@ -36,15 +36,15 @@ export class CompetitionsService {
     ).pipe(map(response => response.json()));
   }
 
-  getStandings(idCompetition: number) {
+  getStandings(idCompetition: number, status?: string) {
     return from(
-      fetch(`${this.env.apiUrl}competitions/${idCompetition}/standings`, {...this.opts})
+      fetch(`${this.env.apiUrl}competitions/${idCompetition}/standings${status ? '?status=' + status : ''}`, {...this.opts})
     ).pipe(map(response => response.json()));
   }
 
-  getMatches(idCompetition: number, status = 'SCHEDULED') {
+  getMatches(idCompetition: number) {
     return from(
-      fetch(`${this.env.apiUrl}competitions/${idCompetition}/matches?status=${status}`, {...this.opts})
+      fetch(`${this.env.apiUrl}competitions/${idCompetition}/matches`, {...this.opts})
     ).pipe(map(response => response.json()));
   }
 }

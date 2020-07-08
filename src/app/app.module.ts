@@ -11,6 +11,7 @@ import {LayoutsModule} from './shared/layouts/layouts.module';
 import {SweetAlert2Module} from '@sweetalert2/ngx-sweetalert2';
 import {ErrorMessageComponent} from './shared/components/error-message/error-message.component';
 import {SuccessMessageComponent} from './shared/components/success-message/success-message.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import {SuccessMessageComponent} from './shared/components/success-message/succe
     HttpClientModule,
     LayoutsModule,
     SweetAlert2Module.forRoot(),
+    ToastrModule.forRoot(), // ToastrModule added
     ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production})
   ],
   providers: [],

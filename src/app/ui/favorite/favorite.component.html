@@ -1,0 +1,100 @@
+<!-- fav -->
+<div class="segments-page">
+  <div class="container">
+    <div class="row segments" style="padding-bottom: 10px">
+      <div class="col s12">
+        <div class="content center-align">
+          <h2 class="logo-nav">Favorites</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s12">
+        <ul class="tabs">
+          <li class="tab col s6"> <a [href]="getCurrentUrl() + '#pageTeams'" class="active">Teams</a></li>
+          <li class="tab col s6"> <a [href]="getCurrentUrl() + '#pageComps'">Competitions</a></li>
+        </ul>
+      </div>
+      <div id="pageTeams" class="col s12">
+        <div class="content section" *ngFor="let team of listTeam?.teams; let i = index">
+          <div class="image-frame hide-on-large-only">
+            <img style="width: 100%;" src="{{team.crestUrl ? team.crestUrl : 'assets/images/event1.jpg'}}" alt="{{team.shortName}}"></div>
+          <div class="hide-on-med-and-down show-on-large">
+            <div class="row">
+              <div class="col s4 offset-s4">
+                <img style="width: 100% !important;" src="{{team.crestUrl ? team.crestUrl : 'assets/images/event1.jpg'}}" alt="{{team.shortName}}">
+              </div>
+            </div>
+          </div>
+          <div class="text">
+            <div class="row" style="margin-bottom: 5px">
+              <div class="col s6">
+                <div class="row" style="margin-bottom: 5px">
+                  <div class="col s12">
+                    <h4><a href="javascript:void(0)" (click)="navigate('/team/' + team.id)">{{team.name}}</a></h4>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col s12">
+                    <p class="date valign-wrapper">
+                      <img class="flag-img" src="assets/images/flags/24px/{{getFlag(team.area.name)}}.png" alt="country flag"/>
+                      <span>{{team.area.name}}</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col s6 right-align">
+                <a [appFadeIn] href="javascript:void(0)" (click)="favorite('TEAM', team.id)" class="waves-effect waves-light btn-floating bg-red">
+                  <i class="fas fa-heart"></i>
+                </a>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s12">
+                <p><app-spinner [isActive]="teamDescs[i] | isEmpty"></app-spinner>{{truncate(teamDescs[i])}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="pageComps" class="col s12">
+        <div class="content section" *ngFor="let comp of listComps; let i = index">
+          <div class="image-frame hide-on-large-only">
+            <img style="width: 100%;" src="{{comp.emblemUrl ? comp.emblemUrl : 'assets/images/event1.jpg'}}" alt="{{comp.name}}"></div>
+          <div class="hide-on-med-and-down show-on-large">
+            <div class="row">
+              <div class="col s4 offset-s4">
+                <img style="width: 100% !important;" src="{{comp.emblemUrl ? comp.emblemUrl : 'assets/images/event1.jpg'}}" alt="{{comp.name}}">
+              </div>
+            </div>
+          </div>
+          <div class="text">
+            <div class="row" style="margin-bottom: 5px">
+              <div class="col s6">
+                <div class="row" style="margin-bottom: 5px">
+                  <div class="col s12">
+                    <h4><a href="javascript:void(0)" (click)="navigate('/competition/' + comp.id)">{{comp.name}}</a></h4>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col s12">
+                    <p class="date valign-wrapper">
+                      <img class="flag-img" src="assets/images/flags/24px/{{getFlag(comp.area.name)}}.png" alt="country flag"/>
+                      <span>{{comp.area.name}}</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col s6 right-align">
+                <a [appFadeIn] href="javascript:void(0)" (click)="favorite('MATCH', comp.id)" class="waves-effect waves-light btn-floating bg-red">
+                  <i class="fas fa-heart"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end fav -->

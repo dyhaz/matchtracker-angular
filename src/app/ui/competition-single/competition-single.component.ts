@@ -6,6 +6,7 @@ import {TeamsService} from '../../services/teams.service';
 import {AppComponent} from '../../app.component';
 import {CompetitionsService} from '../../services/competitions.service';
 import {NoMatchMessageComponent} from '../../shared/components/no-match-message/no-match-message.component';
+import StringUtils from '../../shared/helpers/string-utils';
 
 @Component({
   selector: 'app-competition-single',
@@ -47,14 +48,19 @@ export class CompetitionSingleComponent extends AppBaseComponent implements OnIn
         });
       });
 
+      /**
+       * Get standings
+       */
       this.competitionSvc.getStandings(value.id).subscribe(res => {
         res.then( val => {
           this.compDetail = val;
         });
+      }, () => {
+        this.app.toggleError();
       });
 
       this.competitionSvc.getMatches(value.id).subscribe(res => {
-        res.then( val => {
+        res.then(val => {
           this.compMatches = [];
           val.matches.forEach(match => {
             /**
@@ -111,6 +117,10 @@ export class CompetitionSingleComponent extends AppBaseComponent implements OnIn
 
   share(): void {
     this.app.showShareButtons();
+  }
+
+  truncate(str, max): string {
+    return StringUtils.truncate(str, max);
   }
 
   ngAfterViewInit(): void {
