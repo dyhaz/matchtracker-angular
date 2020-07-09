@@ -14,7 +14,7 @@ export class AppBaseComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  protected navigate(command: string) {
+  public navigate(command: string) {
     this.router.navigate([command]);
   }
 }

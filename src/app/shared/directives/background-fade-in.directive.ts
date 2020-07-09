@@ -9,14 +9,14 @@ declare var $: any;
   selector: '[appFadeIn]'
 })
 export class BackgroundFadeInDirective {
-  @Input() appFadeIn?: string;
+  @Input() appFadeIn;
   @Input() selected = false;
   @Input() highlightColor = '#ff2a68';
 
   constructor(private el: ElementRef) { }
 
-  @HostListener('click', ['$event'])
-  private fade() {
+  @HostListener('click')
+  public fade() {
 
     setTimeout(() => {
       const element = $(this.el.nativeElement);

@@ -116,7 +116,7 @@ export class CompetitionSingleComponent extends AppBaseComponent implements OnIn
   }
 
   share(): void {
-    this.app.showShareButtons();
+    this.app.showShareButtons('Check out this cool app! It\' called MatchTracker\n');
   }
 
   truncate(str, max): string {

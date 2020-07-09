@@ -106,7 +106,7 @@ export class TeamSingleComponent extends AppBaseComponent implements OnInit, Aft
   }
 
   share(): void {
-    this.app.showShareButtons();
+    this.app.showShareButtons('Check out this cool app! It\' called MatchTracker\n');
   }
 
   ngAfterViewInit(): void {
