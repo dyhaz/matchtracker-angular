@@ -232,6 +232,9 @@ ul {
   background: linear-gradient(200deg, #00bfff, #87cefa);
 }
 
+.bg-black {
+  background: linear-gradient(200deg, #aeaeae, #272727);
+}
 .bg-rainbow {
   background-image: url("../images/gradient1.jpg") !important;
   background-repeat: initial !important;
@@ -592,7 +595,7 @@ ul {
 }
 
 .popular-course .content img {
-    border-radius: 15px 15px 0 0;
+    /*border-radius: 15px 15px 0 0;*/
 }
 
 .popular-course .content .text {
@@ -1347,6 +1350,33 @@ ul {
 
 .event-single .wrap-tabs .tabs .indicator {
     background: #3f51b5;
+}
+
+div > .tabs {
+  position: fixed;
+  transform: translate(-50%, 0);
+  left: 50%;
+  z-index: 99;
+}
+
+.tabs-col {
+  padding-top: 100px !important;
+}
+
+.fixed {
+  position: fixed;
+  transform: translate(-50%, 0);
+  left: 50%;
+  width: 100%;
+  background: black;
+  padding: 39px 0 !important;
+  z-index: 98;
+  outline: black double;
+  margin-left: 0 !important
+}
+
+#pageTeams, #pageComps {
+  margin-top: 100px;
 }
 
 .event-single .wrap-tabs .content-tabs {
@@ -2278,7 +2308,7 @@ footer .footer-text p {
 }
 
 td, th {
-  padding: 5px 20px;
+  padding: 0 0;
   width: 100px;
 }
 
@@ -2290,4 +2320,42 @@ tr:first-child { font-weight: bold }
 
 .toast-container {
   padding-left: 20px;
+}
+
+.popular-slide tr td, .popular-slide tr th {
+  color: black;
+  height: 40px;
+  white-space: nowrap;
+}
+
+.popular-slide tr td a {
+  color: black;
+}
+
+.reload-btn {
+  background-image: url("../images/reload.png");
+  background-repeat: round;
+  background-clip: content-box;
+  filter: invert(1);
+  width: 80% !important;
+  height: 80% !important;
+  margin: 10% 10% 10% 10%;
+}
+
+.btn-heart-icon {
+  background-image: url("../images/heart.png");
+  background-repeat: round;
+  filter: invert(1);
+  width: 60% !important;
+  height: 60% !important;
+  margin: 20% 20% 20% 20%;
+}
+
+.btn-heart-empty-icon{
+  background-image: url("../images/heart-outline.png");
+  background-repeat: round;
+  filter: invert(1);
+  width: 60% !important;
+  height: 60% !important;
+  margin: 20% 20% 20% 20%;
 }

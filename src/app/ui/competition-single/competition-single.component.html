@@ -3,7 +3,8 @@
   <div class="container">
     <div class="content-image hide-on-large-only">
       <div class="image-frame"><img class="emblem" [src]="competition?.emblemUrl
-       ? competition.emblemUrl : 'assets/images/emblems/' + competition?.code + '.png'" alt="{{competition?.name}}"></div>
+       ? competition.emblemUrl : 'assets/images/emblems/' + competition?.code + '.png'" alt="{{competition?.name}}">
+      </div>
     </div>
     <div class="content-text">
       <h4 class="hide-on-large-only">{{competition?.name}}</h4>
@@ -13,7 +14,8 @@
        ? competition.emblemUrl : 'assets/images/emblems/' + competition?.code + '.png'" alt="{{competition?.name}}">
         </div>
         <div class="col s12 l8">
-          <app-spinner [isActive]="competitionDescription | isEmpty"></app-spinner><p [innerHTML]="competitionDescription"></p>
+          <app-spinner [isActive]="competitionDescription | isEmpty"></app-spinner>
+          <p [innerHTML]="competitionDescription"></p>
         </div>
       </div>
     </div>
@@ -21,7 +23,7 @@
       <div class="row">
         <div class="col s4">
           <a href="javascript:void(0)" (click)="favorite()">
-            <div [appFadeIn] [ngClass]="['content', 'waves-effect', 'waves-light']">
+            <div [appFadeIn] [selected]="isLiked" [ngClass]="['content', 'waves-effect', 'waves-light']">
               <span class="bg-rainbow"></span>
               <i [ngClass]="['fas','fa-heart','bg-red']"></i>
               <h6>Favorite</h6>
@@ -29,7 +31,7 @@
           </a>
         </div>
         <div class="col s4">
-          <a href="javascript:void(0)">
+          <a href="javascript:void(0)" (click)="notify()">
             <div [appFadeIn] [highlightColor]="'#ff5e3a'" [ngClass]="['content', 'waves-effect', 'waves-light']">
               <i class="fas fa-bell bg-orange"></i>
               <h6>Notify</h6>
@@ -80,7 +82,7 @@
               <h5 class="numscroller" data-min="1" data-max="1030" data-delay="10" data-increment="2">
                 <app-spinner [isActive]="match.awayTeam.crestUrl | isEmpty"></app-spinner>
                 <img [hidden]="match.awayTeam.crestUrl | isEmpty"
-                     [src]="match.awayTeam.crestUrl" alt="logo" class="match-team-logo" /></h5>
+                     [src]="match.awayTeam.crestUrl" alt="logo" class="match-team-logo"/></h5>
             </div>
           </div>
           <div class="col s6">
@@ -132,54 +134,7 @@
         </div>
       </div>
     </div>
-    <div class="row" style="width: 100%">
-      <div class="col s3">
-        <table>
-          <thead>
-            <tr>
-              <th>Team</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let standing of compDetail?.standings[0].table">
-              <td style="height: 40px"><p class="valign-wrapper hide-on-med-and-down">
-                <img height="10px" width="10px" src="{{ standing.team.crestUrl }}" alt="{{ truncate(standing.team.name, 10) }}"/>&nbsp;
-                <a href="javascript:void(0)" (click)="navigate('/team/' + standing.team.id)">
-                  {{ truncate(standing.team.name.replace(' FC', '').trim(), 20) }}</a></p>
-                <span style="text-align: center; width: 100%" class="hide-on-large-only">
-                  <img height="30px" width="30px" src="{{ standing.team.crestUrl }}" alt="{{ truncate(standing.team.name, 10) }}"/>
-                </span>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="col s9">
-        <div class="table-wrapper">
-          <table>
-            <thead class="header">
-              <tr>
-                <th>Played</th>
-                <th>Won</th>
-                <th>Draw</th>
-                <th>Lost</th>
-                <th>Points</th>
-              </tr>
-            </thead>
-
-            <tbody class="result">
-              <tr *ngFor="let standing of compDetail?.standings[0].table; let i = index">
-                <td style="height: 40px">{{standing.playedGames}}</td>
-                <td><span style="height: 40px"></span>{{standing.won}}</td>
-                <td><span style="height: 40px"></span>{{standing.draw}}</td>
-                <td><span style="height: 40px"></span>{{standing.lost}}</td>
-                <td><span style="height: 40px"></span>{{standing.points}}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
+    <app-standings [compDetail]="compDetail"></app-standings>
   </div>
 </div>
 <!-- end compDetail -->

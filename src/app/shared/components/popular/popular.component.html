@@ -1,38 +1,40 @@
 <!-- popular course -->
 <div class="popular-course segments">
   <div class="section-title">
-    <h3>Promo <a href="#">view all <i class="fas fa-long-arrow-alt-right"></i></a></h3>
+    <h3>Standings</h3>
   </div>
+
+  <!-- loading spinner -->
+  <div class="content center-align" *ngIf="listComps.length === 0">
+    <div class="text">
+      <app-spinner [isActive]="listComps | isEmpty"></app-spinner>
+    </div>
+  </div>
+  <!-- end loading spinner-->
+
   <div class="popular-slide owl-carousel owl-theme">
-    <div class="content">
-      <a href="#">
-        <img src="assets/images/course1.jpg" alt="promo1">
-        <div class="text">
-          <span>null</span>
-          <h4>#1</h4>
-          <p>your text goes here</p>
+    <div class="content center-align" *ngFor="let comp of listComps">
+        <div class="row">
+          <a href="javascript:void(0)" (click)="navigate('/competition/' + comp.id)">
+            <div class="col s4 offset-s4">
+              <div class="image-frame">
+                <img style="width: 100%;" src="{{ comp?.emblemUrl ? comp.emblemUrl : 'assets/images/emblems/smol/' + comp?.code + '.png' }}" alt="league logo">
+              </div>
+            </div>
+          </a>
+
+          <div class="col s12">
+            <div class="divider"></div>
+            <a href="javascript:void(0)" (click)="navigate('/competition/' + comp.id)">
+              <div class="text">
+                <span>{{ comp.area.name }}</span>
+                <h4>{{ comp.name }}</h4>
+              </div>
+            </a>
+            <app-spinner [isActive]="compDetail[comp.id] | isEmpty"></app-spinner>
+            <app-standings [compDetail]="compDetail[comp.id]" maxTeams="5"></app-standings>
+          </div>
         </div>
-      </a>
-    </div>
-    <div class="content">
-      <a href="#">
-        <img src="assets/images/course2.jpg" alt="promo1">
-        <div class="text">
-          <span>null</span>
-          <h4>#2</h4>
-          <p>your text goes here</p>
-        </div>
-      </a>
-    </div>
-    <div class="content">
-      <a href="course-single.html">
-        <img src="assets/images/course3.jpg" alt="promo1">
-        <div class="text">
-          <span>null</span>
-          <h4>#3</h4>
-          <p>your text goes here</p>
-        </div>
-      </a>
     </div>
   </div>
 </div>

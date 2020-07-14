@@ -10,6 +10,7 @@ import {CompetitionComponent} from './ui/competition/competition.component';
 import {CompetitionSingleComponent} from './ui/competition-single/competition-single.component';
 import {MatchComponent} from './ui/match/match.component';
 import {FavoriteComponent} from './ui/favorite/favorite.component';
+import {NotificationTestComponent} from './ui/notification-test/notification-test.component';
 
 const routes: Routes = [
   { path: 'index', component: IndexComponent},
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'team/byLeague/:league', component: TeamComponent},
   { path: 'match', component: MatchComponent},
   { path: 'favorite', component: FavoriteComponent},
+  { path: 'notifications', component: NotificationTestComponent},
   { path: '', redirectTo: 'index', pathMatch: 'full'}
 ];
 

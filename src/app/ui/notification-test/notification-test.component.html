@@ -1,0 +1,21 @@
+<div class="segments-page">
+  <div class="container">
+    <div class="row valign-wrapper">
+      <div class="col s12 center-align">
+        <div (click)="allow()" class="btn bg-blue">Allow me!</div>&nbsp;
+        <div (click)="messagingService.notifySimple()" class="btn-floating bg-rainbow waves-effect waves-light waves-ripple">
+          <i class="fas fa-bell"></i>
+        </div>&nbsp;
+        <div (click)="messagingService.notifyInteract()" class="btn-floating bg-orange waves-effect waves-light waves-ripple">
+          <i class="fas fa-bell"></i>
+        </div>&nbsp;
+        <div (click)="messagingService.notifyIcon()" class="btn-floating bg-red waves-effect waves-light waves-ripple">
+          <i class="fas fa-bell"></i>
+        </div>&nbsp;
+        <div (click)="messagingService.notifyBadge()" class="btn-floating bg-green waves-effect waves-light waves-ripple">
+          <i class="fas fa-bell"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -38,7 +38,7 @@ export class TeamsService {
 
   getTeamDescription(teamName: string) {
     return from(
-      fetch(`${this.env.wikiApiUrl}page/mobile-sections/${teamName}`)
+      fetch(`${this.env.wikipedia.endpoint}page/mobile-sections/${teamName}`)
     ).pipe(map(response => response.json()));
   }
 

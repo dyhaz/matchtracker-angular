@@ -1,7 +1,7 @@
 <!-- fav -->
 <div class="segments-page">
   <div class="container">
-    <div class="row segments" style="padding-bottom: 10px">
+    <div class="row segments fixed">
       <div class="col s12">
         <div class="content center-align">
           <h2 class="logo-nav">Favorites</h2>
@@ -9,14 +9,18 @@
       </div>
     </div>
     <div class="row">
-      <div class="col s12">
+      <div class="col s12 tabs-col">
         <ul class="tabs">
-          <li class="tab col s6"> <a [href]="getCurrentUrl() + '#pageTeams'" class="active">Teams</a></li>
-          <li class="tab col s6"> <a [href]="getCurrentUrl() + '#pageComps'">Competitions</a></li>
+          <li class="tab col s6"> <a [href]="getCurrentUrl() + '#pageTeams'" (click)="resetPage()" class="active">Teams</a></li>
+          <li class="tab col s6"> <a [href]="getCurrentUrl() + '#pageComps'" (click)="resetPage()" >Competitions</a></li>
         </ul>
       </div>
       <div id="pageTeams" class="col s12">
-        <div class="content section" *ngFor="let team of listTeam?.teams; let i = index">
+        <div class="center-align">
+          <app-spinner [isActive]="(listTeam | isEmpty) && !noFavTeam"></app-spinner>
+          <span *ngIf="noFavTeam">No favorited teams yet.</span>
+        </div>
+        <div class="content section" *ngFor="let team of listTeam; let i = index">
           <div class="image-frame hide-on-large-only">
             <img style="width: 100%;" src="{{team.crestUrl ? team.crestUrl : 'assets/images/event1.jpg'}}" alt="{{team.shortName}}"></div>
           <div class="hide-on-med-and-down show-on-large">
@@ -44,8 +48,8 @@
                 </div>
               </div>
               <div class="col s6 right-align">
-                <a [appFadeIn] href="javascript:void(0)" (click)="favorite('TEAM', team.id)" class="waves-effect waves-light btn-floating bg-red">
-                  <i class="fas fa-heart"></i>
+                <a [appFadeIn] [selected]="true" href="javascript:void(0)" (click)="favorite('TEAM', team.id)" class="waves-effect waves-light btn-floating bg-red">
+                  <i class="btn-heart-icon"></i>
                 </a>
               </div>
             </div>
@@ -58,13 +62,17 @@
         </div>
       </div>
       <div id="pageComps" class="col s12">
+        <div class="center-align">
+          <app-spinner [isActive]="(listComps | isEmpty) && !noFavComp"></app-spinner>
+          <span *ngIf="noFavComp">No favorited competitions yet.</span>
+        </div>
         <div class="content section" *ngFor="let comp of listComps; let i = index">
           <div class="image-frame hide-on-large-only">
-            <img style="width: 100%;" src="{{comp.emblemUrl ? comp.emblemUrl : 'assets/images/event1.jpg'}}" alt="{{comp.name}}"></div>
+            <img style="width: 100%;" src="{{comp.emblemUrl ? comp.emblemUrl : 'assets/images/emblems/' + comp?.code + '.png'}}" alt="{{comp.name}}"></div>
           <div class="hide-on-med-and-down show-on-large">
             <div class="row">
               <div class="col s4 offset-s4">
-                <img style="width: 100% !important;" src="{{comp.emblemUrl ? comp.emblemUrl : 'assets/images/event1.jpg'}}" alt="{{comp.name}}">
+                <img style="width: 100% !important;" src="{{comp.emblemUrl ? comp.emblemUrl : 'assets/images/emblems/' + comp?.code + '.png'}}" alt="{{comp.name}}">
               </div>
             </div>
           </div>
@@ -86,8 +94,8 @@
                 </div>
               </div>
               <div class="col s6 right-align">
-                <a [appFadeIn] href="javascript:void(0)" (click)="favorite('COMPETITION', comp.id)" class="waves-effect waves-light btn-floating bg-red">
-                  <i class="fas fa-heart"></i>
+                <a [appFadeIn] [selected]="true" href="javascript:void(0)" (click)="favorite('COMPETITION', comp.id)" class="waves-effect waves-light btn-floating bg-red">
+                  <i class="btn-heart-icon"></i>
                 </a>
               </div>
             </div>

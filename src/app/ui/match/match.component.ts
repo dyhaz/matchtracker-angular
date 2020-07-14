@@ -7,6 +7,7 @@ import {CompetitionsService} from '../../services/competitions.service';
 import {TeamsService} from '../../services/teams.service';
 import StringUtils from '../../shared/helpers/string-utils';
 import {HourFormatPipe} from '../../shared/pipes/hour-format.pipe';
+import {NgxIndexedDBService} from 'ngx-indexed-db';
 declare var moment: any;
 
 @Component({
@@ -25,8 +26,9 @@ export class MatchComponent extends AppBaseComponent implements OnInit, AfterVie
               protected http: HttpClient,
               protected competitionSvc: CompetitionsService,
               protected teamService: TeamsService,
-              protected app: AppComponent) {
-    super(router, activatedRoute, http, app);
+              protected app: AppComponent,
+              protected dbService: NgxIndexedDBService) {
+    super(router, activatedRoute, http, app, dbService);
   }
 
   processRequest(result: Promise<any>): void {

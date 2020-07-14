@@ -1,5 +1,5 @@
 function twitterShare(title) {
-  window.location.href = 'https://twitter.com/intent/tweet?text' +  title + '&url=' + window.location.href;
+  window.location.href = 'https://twitter.com/intent/tweet?text=' +  title + '&url=' + window.location.href;
 }
 
 function fbShare(title) {

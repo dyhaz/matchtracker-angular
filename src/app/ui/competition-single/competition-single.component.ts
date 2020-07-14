@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
 import {AppBaseComponent} from '../../app.base.component';
@@ -7,29 +7,35 @@ import {AppComponent} from '../../app.component';
 import {CompetitionsService} from '../../services/competitions.service';
 import {NoMatchMessageComponent} from '../../shared/components/no-match-message/no-match-message.component';
 import StringUtils from '../../shared/helpers/string-utils';
+import {NgxIndexedDBService} from 'ngx-indexed-db';
+import {Subscription} from 'rxjs';
+import {MessagingService} from '../../services/messaging.service';
 
 @Component({
   selector: 'app-competition-single',
   templateUrl: './competition-single.component.html'
 })
-export class CompetitionSingleComponent extends AppBaseComponent implements OnInit, AfterViewInit, OnDestroy {
+export class CompetitionSingleComponent extends AppBaseComponent implements OnInit, OnDestroy {
   @ViewChild('message', {static: true}) protected message: NoMatchMessageComponent;
 
   title = 'competition-single';
-  isFav = false;
+  competitionSubs: Subscription;
   competition: any;
   competitionDescription = '';
   compDetail: any;
   compMatches: any = [];
   compColors = {2021: 'purple', 2001: 'blue2', 2002: 'red', 2003: 'blue', 2014: 'rainbow', 2015: 'sky'};
+  isLiked = false;
 
   constructor(protected router: Router,
               protected activatedRoute: ActivatedRoute,
               protected http: HttpClient,
               protected competitionSvc: CompetitionsService,
               protected teamService: TeamsService,
-              protected app: AppComponent) {
-    super(router, activatedRoute, http, app);
+              protected app: AppComponent,
+              protected dbService: NgxIndexedDBService,
+              private messagingService: MessagingService) {
+    super(router, activatedRoute, http, app, dbService);
   }
 
   processRequest(result: Promise<any>): void {
@@ -111,29 +117,54 @@ export class CompetitionSingleComponent extends AppBaseComponent implements OnIn
   }
 
   favorite(): void {
-    this.isFav = true;
-    this.app.favorite();
+    if (this.isLiked) {
+      this.dbService.delete('competition', this.competition.id).then(
+        () => {
+        });
+    } else {
+      this.dbService.add('competition', { ...this.competition, description: this.competitionDescription})
+        .then(() => {
+        });
+    }
   }
 
   share(): void {
-    this.app.showShareButtons('Check out this cool app! It\' called MatchTracker\n');
+    this.app.showShareButtons('Check out this cool app! It’s called MatchTracker');
+  }
+
+  notify() {
+    this.messagingService.permitToNotify();
   }
 
   truncate(str, max): string {
     return StringUtils.truncate(str, max);
   }
 
-  ngAfterViewInit(): void {
+  ngOnInit(): void {
     this.app.showLoading();
 
     if (this.activatedRoute.snapshot.paramMap.get('competition')) {
+      /**
+       * Get competition informations
+       */
       const competition = parseInt(this.activatedRoute.snapshot.paramMap.get('competition'), 10);
 
-      this.competitionSvc.getCompetition(competition).subscribe(res => {
+      this.competitionSubs = this.competitionSvc.getCompetition(competition).subscribe(res => {
         this.processRequest(res);
       }, () => {
         this.app.toggleError();
       });
+
+      /**
+       * Get favorite
+       */
+      this.dbService.getByIndex('competition', 'id', competition).then(
+        comp => {
+          if (comp) {
+            this.isLiked = true;
+          }
+        }
+      );
     }
   }
 
@@ -142,6 +173,10 @@ export class CompetitionSingleComponent extends AppBaseComponent implements OnIn
     this.competitionDescription = '';
     this.compDetail = null;
     this.compMatches = [];
+
+    if (this.competitionSubs) {
+      this.competitionSubs.unsubscribe();
+    }
   }
 
 }

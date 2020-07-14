@@ -32,7 +32,7 @@ export class CompetitionsService {
 
   getCompetitionDescription(competitionName: string) {
     return from(
-      fetch(`${this.env.wikiApiUrl}page/mobile-sections/${competitionName}`)
+      fetch(`${this.env.wikipedia.endpoint}page/mobile-sections/${competitionName}`)
     ).pipe(map(response => response.json()));
   }
 
@@ -45,6 +45,12 @@ export class CompetitionsService {
   getMatches(idCompetition: number) {
     return from(
       fetch(`${this.env.apiUrl}competitions/${idCompetition}/matches`, {...this.opts})
+    ).pipe(map(response => response.json()));
+  }
+
+  getMatchesByDateRange(idCompetition: number, date1, date2) {
+    return from(
+      fetch(`${this.env.apiUrl}competitions/${idCompetition}/matches?dateFrom=${date1}&dateTo=${date2}`, {...this.opts})
     ).pipe(map(response => response.json()));
   }
 }

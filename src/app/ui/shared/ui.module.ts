@@ -30,6 +30,11 @@ import {BackgroundFadeInDirective} from '../../shared/directives/background-fade
 import {HttpClientModule} from '@angular/common/http';
 import {MatchComponent} from '../match/match.component';
 import {FavoriteComponent} from '../favorite/favorite.component';
+import {AboutComponent} from '../../shared/components/about/about.component';
+import {StandingsComponent} from '../../shared/components/standings/standings.component';
+import {DateFormatPipe} from '../../shared/pipes/date-format.pipe';
+import {MessagingService} from '../../services/messaging.service';
+import {NotificationTestComponent} from '../notification-test/notification-test.component';
 
 @NgModule({
   imports: [
@@ -60,11 +65,15 @@ import {FavoriteComponent} from '../favorite/favorite.component';
     LatestNewsComponent,
     CircularSpinnerComponent,
     ShareButtonsComponent,
+    AboutComponent,
+    StandingsComponent,
+    NotificationTestComponent,
     /**
      * Pipes
      */
     IsEmptyPipe,
     HourFormatPipe,
+    DateFormatPipe,
     /**
      * Directives
      */
@@ -74,7 +83,7 @@ import {FavoriteComponent} from '../favorite/favorite.component';
     ShareButtonsComponent
   ],
   providers: [
-    AreasService, TeamsService, PlayersService
+    AreasService, TeamsService, PlayersService, MessagingService
   ]
 })
 export class UiModule { }

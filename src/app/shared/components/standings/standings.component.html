@@ -1,0 +1,63 @@
+<!-- compDetail -->
+<div class="row" style="width: 100%">
+  <div class="col s3">
+    <table>
+      <thead>
+      <tr>
+        <th>
+          <div class="row" style="margin-bottom: 0">
+            <div class="col s4 offset-s4" style="padding-left: 0">
+              Team
+            </div>
+          </div>
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let standing of compDetail?.standings[0].table.slice(0, maxTeams)">
+        <td style="height: 40px"><p class="valign-wrapper hide-on-med-and-down">
+          <img style="width: 30px !important; height: 30px !important;" src="{{ standing.team.crestUrl }}"
+               alt="{{ truncate(standing.team.name, 10) }}"/>&nbsp;
+          <a href="javascript:void(0)" (click)="navigate('/team/' + standing.team.id)">
+            {{ truncate(standing.team.name.replace(' FC', '').trim(), 20) }}</a></p>
+
+          <div class="row" style="margin-bottom: 0">
+            <div class="col s4 offset-s4" style="padding-left: 0">
+              <span style="width: 100%" class="hide-on-large-only">
+              <img style="width: 30px !important; height: 30px !important;" src="{{ standing.team.crestUrl }}"
+                   alt="{{ truncate(standing.team.name, 10) }}"/>
+              </span>
+            </div>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col s9">
+    <div class="table-wrapper">
+      <table>
+        <thead class="header">
+        <tr>
+          <th *ngIf="maxTeams > 5">Played</th>
+          <th>{{ maxTeams <= 5 ? 'W' : 'Won'}}</th>
+          <th>{{ maxTeams <= 5 ? 'D' : 'Draw'}}</th>
+          <th>{{ maxTeams <= 5 ? 'L' : 'Lost'}}</th>
+          <th>{{ maxTeams <= 5 ? 'P' : 'Points'}}</th>
+        </tr>
+        </thead>
+
+        <tbody class="result">
+        <tr *ngFor="let standing of compDetail?.standings[0].table.slice(0, maxTeams); let i = index">
+          <td style="height: 40px" *ngIf="maxTeams > 5">{{standing.playedGames}}</td>
+          <td><span style="height: 40px"></span>{{standing.won}}</td>
+          <td><span style="height: 40px"></span>{{standing.draw}}</td>
+          <td><span style="height: 40px"></span>{{standing.lost}}</td>
+          <td><span style="height: 40px"></span>{{standing.points}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<!-- end compDetail -->

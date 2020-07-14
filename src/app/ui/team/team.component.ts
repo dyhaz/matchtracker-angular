@@ -5,6 +5,7 @@ import {AppBaseComponent} from '../../app.base.component';
 import {TeamsService} from '../../services/teams.service';
 import {AppComponent} from '../../app.component';
 import StringUtils from '../../shared/helpers/string-utils';
+import {NgxIndexedDBService} from 'ngx-indexed-db';
 
 @Component({
   selector: 'app-team',
@@ -25,8 +26,9 @@ export class TeamComponent extends AppBaseComponent implements OnInit, AfterView
               protected activatedRoute: ActivatedRoute,
               protected http: HttpClient,
               protected teamService: TeamsService,
-              protected app: AppComponent) {
-    super(router, activatedRoute, http, app);
+              protected app: AppComponent,
+              protected dbService: NgxIndexedDBService) {
+    super(router, activatedRoute, http, app, dbService);
   }
 
   truncate(val: string) {

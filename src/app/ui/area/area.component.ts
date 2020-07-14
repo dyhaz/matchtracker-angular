@@ -4,6 +4,7 @@ import {HttpClient} from '@angular/common/http';
 import {AppBaseComponent} from '../../app.base.component';
 import {AreasService} from '../../services/areas.service';
 import {AppComponent} from '../../app.component';
+import {NgxIndexedDBService} from 'ngx-indexed-db';
 
 @Component({
   selector: 'app-area',
@@ -16,8 +17,9 @@ export class AreaComponent extends AppBaseComponent implements OnInit, AfterView
               protected activatedRoute: ActivatedRoute,
               protected http: HttpClient,
               protected areaService: AreasService,
-              protected app: AppComponent) {
-    super(router, activatedRoute, http, app);
+              protected app: AppComponent,
+              protected dbService: NgxIndexedDBService) {
+    super(router, activatedRoute, http, app, dbService);
   }
 
   ngAfterViewInit(): void {
@@ -26,7 +28,7 @@ export class AreaComponent extends AppBaseComponent implements OnInit, AfterView
       res.then(value => {
         console.log(value);
       });
-      res.catch(error => {
+      res.catch(() => {
         this.app.toggleError();
       });
     });

@@ -1,10 +1,10 @@
-import {AfterViewInit, Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
 import {AppBaseComponent} from '../../app.base.component';
 import {TeamsService} from '../../services/teams.service';
 import {AppComponent} from '../../app.component';
-import {PlayersService} from '../../services/players.service';
+import {NgxIndexedDBService} from 'ngx-indexed-db';
 
 @Component({
   selector: 'app-team-single',
@@ -21,14 +21,15 @@ export class TeamSingleComponent extends AppBaseComponent implements OnInit, Aft
   wins: number;
   draws: number;
   loses: number;
+  isLiked = false;
 
   constructor(protected router: Router,
               protected activatedRoute: ActivatedRoute,
               protected http: HttpClient,
               protected teamService: TeamsService,
-              protected playerService: PlayersService,
-              protected app: AppComponent) {
-    super(router, activatedRoute, http, app);
+              protected app: AppComponent,
+              protected dbService: NgxIndexedDBService) {
+    super(router, activatedRoute, http, app, dbService);
   }
 
   processRequest(result: Promise<any>): void {
@@ -106,19 +107,33 @@ export class TeamSingleComponent extends AppBaseComponent implements OnInit, Aft
   }
 
   share(): void {
-    this.app.showShareButtons('Check out this cool app! It\' called MatchTracker\n');
+    this.app.showShareButtons('Check out this cool app! It’s called MatchTracker');
   }
 
   ngAfterViewInit(): void {
     this.app.showLoading();
 
     if (this.activatedRoute.snapshot.paramMap.get('team')) {
+      /**
+       * Get team
+       */
       const team = parseInt(this.activatedRoute.snapshot.paramMap.get('team'), 10);
       this.teamService.getTeam(team).subscribe(res => {
         this.processRequest(res);
       }, () => {
         this.app.toggleError();
       });
+
+      /**
+       * Get favorite
+       */
+      this.dbService.getByIndex('team', 'id', team).then(
+        t => {
+          if (t) {
+            this.isLiked = true;
+          }
+        }
+      );
     }
   }
 
@@ -129,4 +144,14 @@ export class TeamSingleComponent extends AppBaseComponent implements OnInit, Aft
     this.finished = null;
   }
 
+  favorite(): void {
+    if (this.isLiked) {
+      this.dbService.delete('team', this.team.id).then(
+        () => {
+        });
+    } else {
+      this.dbService.add('team', { ...this.team, description: this.teamDescription}).then(() => {
+      });
+    }
+  }
 }

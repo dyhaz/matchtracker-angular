@@ -9,3 +9,19 @@
   </div>
   </div>
 </div>
+<div class="center-align section" *ngIf="showMessage" style="border-radius: 15px">
+  <div class="row">
+    <div class="col s12">
+      <a (click)="reload()">
+        <button style="background: #696969" class="btn-floating waves-effect waves-light waves-ripple">
+          <i class="reload-btn"></i>
+        </button>
+      </a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col s12" style="color: #696969">
+      Connection error
+    </div>
+  </div>
+</div>

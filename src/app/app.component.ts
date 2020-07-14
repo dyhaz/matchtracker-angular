@@ -41,11 +41,8 @@ export class AppComponent implements OnInit {
     }
   }
 
-  public favorite() {
-
-  }
-
   public showShareButtons(content?: string) {
+    content = content.replace(/'/g, '’');
     Swal.fire({
       title: '<strong>Share</strong>',
       icon: null,
@@ -58,11 +55,11 @@ export class AppComponent implements OnInit {
               <i class="fa fa-link"></i> Copy URL</button>
             <button type="button" class="swal2-confirm swal2-styled" aria-label="Twitter"
               style="display: inline-block; width: 100%; margin-left: 0;"
-              onClick="twitterShare(content)">
+              onClick="twitterShare('${content}')">
               <i class="fab fa-twitter"></i> Twitter</button>
             <button type="button" class="swal2-confirm swal2-styled" aria-label="Facebook"
               style="display: inline-block; width: 100%; margin-left: 0;"
-              onClick="fbShare(content)">
+              onClick="fbShare('${content}')">
               <i class="fab fa-facebook"></i> Facebook</button>`,
       showCloseButton: false,
       showCancelButton: false,
@@ -87,6 +84,10 @@ export class AppComponent implements OnInit {
 
       case 'Africa': {
         return 'AFR';
+      }
+
+      case 'Asia': {
+        return 'AFC';
       }
     }
 

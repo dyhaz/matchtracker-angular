@@ -4,6 +4,7 @@ import {HttpClient} from '@angular/common/http';
 import {AppBaseComponent} from '../../app.base.component';
 import {AppComponent} from '../../app.component';
 import {CompetitionsService} from '../../services/competitions.service';
+import {NgxIndexedDBService} from 'ngx-indexed-db';
 
 @Component({
   selector: 'app-competition',
@@ -18,8 +19,9 @@ export class CompetitionComponent extends AppBaseComponent implements OnInit, Af
               protected activatedRoute: ActivatedRoute,
               protected http: HttpClient,
               protected competitionSvc: CompetitionsService,
-              protected app: AppComponent) {
-    super(router, activatedRoute, http, app);
+              protected app: AppComponent,
+              protected dbService: NgxIndexedDBService) {
+    super(router, activatedRoute, http, app, dbService);
   }
 
   getFlag(country: string) {
