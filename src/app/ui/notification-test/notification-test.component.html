@@ -17,5 +17,36 @@
         </div>
       </div>
     </div>
+    <div class="row center-align">
+      <div class="col s3">
+        Endpoint:
+      </div>
+      <div class="col s9">
+        {{ subscription.endpoint }}
+      </div>
+    </div>
+    <div class="row center-align">
+      <div class="col s3">
+        p256dh:
+      </div>
+      <div class="col s9">
+        {{ subscription.p256dh }}
+      </div>
+    </div>
+    <div class="row center-align">
+      <div class="col s3">
+        auth
+      </div>
+      <div class="col s9">
+        {{ subscription.auth }}
+      </div>
+    </div>
+    <div class="row center-align">
+      <div class="col s12">
+        <a (click)="push()" href="javascript:void(0)">
+          <div class="btn btn-large waves-light waves-effect bg-purple">Push!
+        </div></a>
+      </div>
+    </div>
   </div>
 </div>

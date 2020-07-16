@@ -1,11 +1,11 @@
 <div class="event segments-page">
   <div class="container">
     <div class="content" *ngFor="let team of listTeam.teams?.slice(begin, end); let i = index">
-      <div class="image-frame hide-on-large-only"><img src="{{team.crestUrl ? team.crestUrl : 'assets/images/event1.jpg'}}" alt="{{team.shortName}}"></div>
+      <div class="image-frame hide-on-large-only"><img src="{{team.crestUrl ? (team.crestUrl | forceSsl) : 'assets/images/event1.jpg'}}" alt="{{team.shortName}}"></div>
       <div class="hide-on-med-and-down show-on-large">
         <div class="row">
           <div class="col s4 offset-s4">
-            <img style="width: 100% !important;" src="{{team.crestUrl ? team.crestUrl : 'assets/images/event1.jpg'}}" alt="{{team.shortName}}">
+            <img style="width: 100% !important;" src="{{team.crestUrl ? (team.crestUrl | forceSsl) : 'assets/images/event1.jpg'}}" alt="{{team.shortName}}">
           </div>
         </div>
       </div>

@@ -18,7 +18,7 @@
           <a href="javascript:void(0)" (click)="navigate('/competition/' + comp.id)">
             <div class="col s4 offset-s4">
               <div class="image-frame">
-                <img style="width: 100%;" src="{{ comp?.emblemUrl ? comp.emblemUrl : 'assets/images/emblems/smol/' + comp?.code + '.png' }}" alt="league logo">
+                <img style="width: 100%;" src="{{ comp?.emblemUrl ? (comp.emblemUrl | forceSsl) : 'assets/images/emblems/smol/' + comp?.code + '.png' }}" alt="league logo">
               </div>
             </div>
           </a>

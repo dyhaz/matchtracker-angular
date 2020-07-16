@@ -35,6 +35,7 @@ import {StandingsComponent} from '../../shared/components/standings/standings.co
 import {DateFormatPipe} from '../../shared/pipes/date-format.pipe';
 import {MessagingService} from '../../services/messaging.service';
 import {NotificationTestComponent} from '../notification-test/notification-test.component';
+import {ForceSslPipe} from '../../shared/pipes/force-ssl.pipe';
 
 @NgModule({
   imports: [
@@ -74,6 +75,7 @@ import {NotificationTestComponent} from '../notification-test/notification-test.
     IsEmptyPipe,
     HourFormatPipe,
     DateFormatPipe,
+    ForceSslPipe,
     /**
      * Directives
      */

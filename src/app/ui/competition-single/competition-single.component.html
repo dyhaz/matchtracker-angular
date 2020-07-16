@@ -3,7 +3,7 @@
   <div class="container">
     <div class="content-image hide-on-large-only">
       <div class="image-frame"><img class="emblem" [src]="competition?.emblemUrl
-       ? competition.emblemUrl : 'assets/images/emblems/' + competition?.code + '.png'" alt="{{competition?.name}}">
+       ? (competition.emblemUrl | forceSsl) : 'assets/images/emblems/' + competition?.code + '.png'" alt="{{competition?.name}}">
       </div>
     </div>
     <div class="content-text">
@@ -11,7 +11,7 @@
       <div class="row">
         <div class="col l4 hide-on-med-and-down">
           <img width="100%" [src]="competition?.emblemUrl
-       ? competition.emblemUrl : 'assets/images/emblems/' + competition?.code + '.png'" alt="{{competition?.name}}">
+       ? (competition.emblemUrl | forceSsl) : 'assets/images/emblems/' + competition?.code + '.png'" alt="{{competition?.name}}">
         </div>
         <div class="col s12 l8">
           <app-spinner [isActive]="competitionDescription | isEmpty"></app-spinner>
@@ -82,7 +82,7 @@
               <h5 class="numscroller" data-min="1" data-max="1030" data-delay="10" data-increment="2">
                 <app-spinner [isActive]="match.awayTeam.crestUrl | isEmpty"></app-spinner>
                 <img [hidden]="match.awayTeam.crestUrl | isEmpty"
-                     [src]="match.awayTeam.crestUrl" alt="logo" class="match-team-logo"/></h5>
+                     [src]="match.awayTeam.crestUrl | forceSsl" alt="logo" class="match-team-logo"/></h5>
             </div>
           </div>
           <div class="col s6">
@@ -90,7 +90,7 @@
               <h5 class="numscroller" data-min="1" data-max="154" data-delay="10" data-increment="2">
                 <app-spinner [isActive]="match.homeTeam.crestUrl | isEmpty"></app-spinner>
                 <img [hidden]="match.homeTeam.crestUrl | isEmpty"
-                     [src]="match.homeTeam.crestUrl" alt="logo" class="match-team-logo"/></h5>
+                     [src]="match.homeTeam.crestUrl | forceSsl" alt="logo" class="match-team-logo"/></h5>
             </div>
           </div>
         </div>

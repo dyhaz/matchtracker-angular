@@ -6,12 +6,14 @@ import {AppComponent} from '../../app.component';
 import {NgxIndexedDBService} from 'ngx-indexed-db';
 import {MessagingService} from '../../services/messaging.service';
 
+
 @Component({
   selector: 'app-notification-test',
   templateUrl: './notification-test.component.html'
 })
 export class NotificationTestComponent extends AppBaseComponent implements OnInit {
   title = 'index';
+  subscription: any;
 
   constructor(protected router: Router,
               protected activatedRoute: ActivatedRoute,
@@ -22,7 +24,22 @@ export class NotificationTestComponent extends AppBaseComponent implements OnIni
     super(router, activatedRoute, http, app, dbService);
   }
 
+  ngOnInit(): void {
+    super.ngOnInit();
+    this.subscription = {
+      endpoint: localStorage.getItem('pushEndpoint'),
+      p256dh: localStorage.getItem('p256dh'),
+      auth: localStorage.getItem('auth')
+    };
+  }
+
   allow() {
     this.messagingService.permitToNotify();
+  }
+
+  push() {
+    this.messagingService.pushMsg().subscribe(val => {
+      console.log(val);
+    });
   }
 }

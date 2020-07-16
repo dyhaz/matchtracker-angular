@@ -3,14 +3,14 @@
   <div class="container">
     <div class="content-image hide-on-large-only">
       <div class="image-frame"><img [src]="team?.crestUrl
-       ? team.crestUrl : alternateImage" alt="{{team?.shortName}}"></div>
+       ? (team.crestUrl | forceSsl) : alternateImage" alt="{{team?.shortName}}"></div>
     </div>
     <div class="content-text">
       <h4>{{team?.name}}</h4>
       <div class="row">
         <div class="col l4 hide-on-med-and-down">
           <img width="100%" [src]="team?.crestUrl
-          ? team.crestUrl : alternateImage" alt="{{team?.shortName}}">
+          ? (team.crestUrl | forceSsl) : alternateImage" alt="{{team?.shortName}}">
         </div>
         <div class="col s12 l8">
           <app-spinner [isActive]="teamDescription | isEmpty"></app-spinner><p [innerHTML]="teamDescription"></p>

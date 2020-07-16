@@ -63,5 +63,7 @@ export const defaultEnv = {
     measurementId: 'G-TRHETXMLCC'
   },
 
-  vapidPublicKey: 'BC8k7VqS6AdDYlE2AKcoxCE9ctQFmF25YC51MR0h_SWKULlx-Ud9xxDZUtmEvFzxG-TGDyP_lM1jC3-VGg0BP7g'
+  vapidPublicKey: 'BC8k7VqS6AdDYlE2AKcoxCE9ctQFmF25YC51MR0h_SWKULlx-Ud9xxDZUtmEvFzxG-TGDyP_lM1jC3-VGg0BP7g',
+
+  pushMessageApiUrl: 'https://api.matchtracker.site/'
 };

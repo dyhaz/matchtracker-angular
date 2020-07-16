@@ -7,7 +7,7 @@ import Swal from 'sweetalert2';
 })
 export class CircularSpinnerComponent implements AfterViewInit {
   @Input() isActive: boolean;
-  showMessage = false;
+  showReloadBtn = false;
 
   constructor() {}
 
@@ -16,7 +16,7 @@ export class CircularSpinnerComponent implements AfterViewInit {
       if (Swal.isVisible()) {
         if (Swal.getContent().innerText.includes('error')) {
           this.isActive = false;
-          this.showMessage = true;
+          this.showReloadBtn = true;
         }
       }
     }, 100);

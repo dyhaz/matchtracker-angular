@@ -3,6 +3,8 @@ import {environment} from '../../environments/environment';
 import * as firebase from 'firebase';
 import {SwPush, SwUpdate} from '@angular/service-worker';
 import {ToastrService} from 'ngx-toastr';
+import {from} from 'rxjs';
+import {map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -23,8 +25,16 @@ export class MessagingService {
       document.location.reload();
     }));
 
-    this.push.messages.subscribe(msg => console.log('push message', msg));
-    this.push.notificationClicks.subscribe(click => console.log('notification click', click));
+    this.push.notificationClicks.subscribe(click => {
+      console.log('notification click', click);
+      this.toastr.info(click.notification.body, 'Notification');
+    });
+
+    this.push.messages.subscribe((msg: any) => {
+      this.notifyBadge('Notification', msg.message);
+      this.toastr.info(msg.message, 'Notification');
+    });
+
     if (!firebase.apps.length) {
       firebase.initializeApp(this.env.firebaseConfig);
       navigator.serviceWorker.getRegistration().then(swr => firebase.messaging().useServiceWorker(swr));
@@ -36,6 +46,7 @@ export class MessagingService {
       console.log('Unsubscribe from push ' + msg);
     });
   }
+
   permitToNotify() {
     const messaging = firebase.messaging();
 
@@ -53,7 +64,15 @@ export class MessagingService {
             const req = this.push.requestSubscription({
               serverPublicKey: this.env.vapidPublicKey
             });
-            req.then(sub => console.log(sub));
+
+            req.then(sub => {
+              const subJson = JSON.parse(JSON.stringify(sub));
+              console.log(subJson);
+              localStorage.setItem('pushEndpoint', subJson.endpoint);
+              localStorage.setItem('p256dh', subJson.keys.p256dh + '');
+              localStorage.setItem('auth', subJson.keys.auth + '');
+              this.subscribeToNotifications();
+            });
             req.catch(e => this.toastr.error('Could not subscribe to notifications! ' + e.toString(), 'Error!'));
           });
         }))
@@ -94,10 +113,10 @@ export class MessagingService {
     }
   }
 
-  notifyIcon() {
-    const title = 'Notifikasi Sederhana';
+  notifyIcon(title?: string, body?: string) {
+    title = title ? title : 'Notifikasi Sederhana';
     const options = {
-      body: 'Ini adalah konten notifikasi dengan gambar ikon.',
+      body: body ? body : 'Ini adalah konten notifikasi dengan gambar ikon.',
       icon: '/assets/images/favicon.png'
     };
 
@@ -110,11 +129,12 @@ export class MessagingService {
     }
   }
 
-  notifyBadge() {
-    const title = 'Notifikasi dengan Badge';
+  notifyBadge(title?: string, body?: string) {
+    title = title ? title : 'Notifikasi dengan Badge';
     const options = {
-      body: 'Ini adalah konten notifikasi dengan gambar badge.',
-      badge: '/assets/images/favicon.png'
+      body: body ? body : 'Ini adalah konten notifikasi dengan gambar badge.',
+      badge: '/assets/images/favicon.png',
+      icon: '/assets/images/favicon.png'
     };
     if (Notification.permission === 'granted') {
       navigator.serviceWorker.ready.then((registration) => {
@@ -123,5 +143,22 @@ export class MessagingService {
     } else {
       this.toastr.error('Notifications not allowed!', 'Error!');
     }
+  }
+
+  pushMsg() {
+    const opts = {
+      headers: new Headers(),
+      method: 'GET', // GET, POST, PUT, DELETE
+      mode: 'no-cors' as RequestMode
+    };
+
+    const endpoint = localStorage.getItem('pushEndpoint');
+    const p256dh = localStorage.getItem('p256dh');
+    const auth = localStorage.getItem('auth');
+
+    return from(
+      fetch(`${this.env.pushMessageApiUrl}?endpoint=${endpoint}&p256dh=${p256dh}&auth=${auth}`,
+        {...opts})
+    ).pipe(map(response => response));
   }
 }

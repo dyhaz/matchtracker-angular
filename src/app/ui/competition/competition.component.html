@@ -4,7 +4,7 @@
     <div class="row valign-wrapper" *ngFor="let row of listComps.slice(0, listComps.length / 2 + 0.5); let rowIndex = index">
       <div class="col s6" *ngFor="let comp of listComps.slice(( rowIndex * 2 ), (rowIndex * 2) + 2)">
         <div class="content">
-          <img class="emblem" src="{{comp.emblemUrl ? comp.emblemUrl : 'assets/images/emblems/' + comp.code + '.png'}}"
+          <img class="emblem" src="{{comp.emblemUrl ? (comp.emblemUrl | forceSsl) : 'assets/images/emblems/' + comp.code + '.png'}}"
                alt="{{comp.name}}" (click)="navigate('/competition/' + comp.id)">
           <div class="text">
             <a href="javascript:void(0)" (click)="navigate('/competition/' + comp.id)">

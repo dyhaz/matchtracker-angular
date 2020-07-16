@@ -1,15 +1,19 @@
-<div class="preloader-wrapper small {{isActive ? 'active' : 'hide'}}">
-  <div class="spinner-layer spinner-blue-only">
-    <div class="circle-clipper left">
-      <div class="circle"></div>
-    </div><div class="gap-patch">
-    <div class="circle"></div>
-  </div><div class="circle-clipper right">
-    <div class="circle"></div>
-  </div>
+<div class="row center-align" *ngIf="isActive" style="width: 100%">
+  <div class="col s12">
+    <div class="preloader-wrapper small {{isActive ? 'active' : 'hide'}}">
+      <div class="spinner-layer spinner-blue-only">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div><div class="gap-patch">
+        <div class="circle"></div>
+      </div><div class="circle-clipper right">
+        <div class="circle"></div>
+      </div>
+      </div>
+    </div>
   </div>
 </div>
-<div class="center-align section" *ngIf="showMessage" style="border-radius: 15px">
+<div class="center-align section" *ngIf="showReloadBtn" style="border-radius: 15px">
   <div class="row">
     <div class="col s12">
       <a (click)="reload()">
