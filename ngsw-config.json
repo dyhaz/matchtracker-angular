@@ -1,6 +1,34 @@
 {
   "$schema": "./node_modules/@angular/service-worker/config/schema.json",
   "index": "/index.html",
+  "dataGroups": [
+    {
+      "name": "football-api",
+      "version": 1,
+      "urls": [
+        "https://api.football-data.org/v2/"
+      ],
+      "cacheConfig": {
+        "strategy": "freshness",
+        "maxSize": 1000,
+        "maxAge": "7d",
+        "timeout": "5s"
+      }
+    },
+    {
+      "name": "wiki-api",
+      "version": 1,
+      "urls": [
+        "https://en.wikipedia.org/api/rest_v1/", "https://upload.wikimedia.org/"
+      ],
+      "cacheConfig": {
+        "strategy": "freshness",
+        "maxSize": 1000,
+        "maxAge": "7d",
+        "timeout": "5s"
+      }
+    }
+  ],
   "assetGroups": [
     {
       "name": "app",
