@@ -23,7 +23,7 @@
       <div class="row">
         <div class="col s4">
           <a href="javascript:void(0)" (click)="favorite()">
-            <div [appFadeIn] [selected]="isLiked" [ngClass]="['content', 'waves-effect', 'waves-light']">
+            <div [appFadeIn] [selected]="isLiked" [ngClass]="['content', 'waves-effect', 'waves-teal']">
               <span class="bg-rainbow"></span>
               <i [ngClass]="['fas','fa-heart','bg-red']"></i>
               <h6>Favorite</h6>
@@ -32,7 +32,7 @@
         </div>
         <div class="col s4">
           <a href="javascript:void(0)" (click)="notify()">
-            <div [appFadeIn] [highlightColor]="'#ff5e3a'" [ngClass]="['content', 'waves-effect', 'waves-light']">
+            <div [appFadeIn] [highlightColor]="'#ff5e3a'" [ngClass]="['content', 'waves-effect', 'waves-teal']">
               <i class="fas fa-bell bg-orange"></i>
               <h6>Notify</h6>
             </div>
@@ -40,7 +40,7 @@
         </div>
         <div class="col s4">
           <a class="modal-trigger" href="javascript:void(0)" (click)="share()">
-            <div [ngClass]="['content', 'waves-effect', 'waves-light']">
+            <div [ngClass]="['content', 'waves-effect', 'waves-teal']">
               <i class="fas fa-share bg-blue"></i>
               <h6>Share</h6>
             </div>

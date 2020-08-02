@@ -4,7 +4,7 @@
     <div class="row segments fixed">
       <div class="col s12">
         <div class="content center-align">
-          <h2 class="logo-nav">Favorites</h2>
+          <h2 class="logo-nav" style="color: black !important;">Favorites</h2>
         </div>
       </div>
     </div>
@@ -48,7 +48,7 @@
                 </div>
               </div>
               <div class="col s6 right-align">
-                <a [appFadeIn] [selected]="true" href="javascript:void(0)" (click)="favorite('TEAM', team.id)" class="waves-effect waves-light btn-floating bg-red">
+                <a [appFadeIn] [selected]="true" href="javascript:void(0)" (click)="favorite('TEAM', team.id)" class="waves-effect waves-teal btn-floating bg-red">
                   <i class="btn-heart-icon"></i>
                 </a>
               </div>
@@ -94,7 +94,7 @@
                 </div>
               </div>
               <div class="col s6 right-align">
-                <a [appFadeIn] [selected]="true" href="javascript:void(0)" (click)="favorite('COMPETITION', comp.id)" class="waves-effect waves-light btn-floating bg-red">
+                <a [appFadeIn] [selected]="true" href="javascript:void(0)" (click)="favorite('COMPETITION', comp.id)" class="waves-effect waves-teal btn-floating bg-red">
                   <i class="btn-heart-icon"></i>
                 </a>
               </div>

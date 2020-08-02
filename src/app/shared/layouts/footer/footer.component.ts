@@ -1,23 +1,29 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {environment} from '../../../../environments/environment';
+import {NavigationStart, Router} from '@angular/router';
 
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html'
 })
-export class FooterComponent implements AfterViewInit {
+export class FooterComponent implements OnInit {
   date = new Date();
   env = environment;
   quote = '';
-  showQuotes = false;
+  @Input() showQuotes = false;
 
-  constructor() {}
+  constructor(private router: Router) {
+  }
 
-  ngAfterViewInit(): void {
-    if (!window.location.href.includes('/login')) {
-      setTimeout(() => this.generateQuote(), 100);
-      this.showQuotes = true;
-    }
+  ngOnInit(): void {
+    this.router.events.subscribe((val) => {
+      const url = (val as NavigationStart).url.toString();
+
+      if (!url.includes('/login')) {
+        setTimeout(() => this.generateQuote(), 100);
+        this.showQuotes = true;
+      }
+    });
   }
 
   generateQuote(): void {

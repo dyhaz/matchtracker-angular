@@ -1,6 +1,6 @@
 {
   "name": "MatchTracker",
-  "short_name": "footballgo-pwa",
+  "short_name": "MatchTracker",
   "theme_color": "#d28400",
   "background_color": "#fafafa",
   "display": "standalone",

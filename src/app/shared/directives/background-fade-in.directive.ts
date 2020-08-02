@@ -58,7 +58,9 @@ export class BackgroundFadeInDirective {
       icon.attr('class', 'btn-heart-empty-icon');
       $(this.el.nativeElement).attr('class', 'waves-effect waves-light btn-floating bg-black');
     } else {
-      element.stop().animate( { 'background-color': '#272727' }, 500);
+      // Dark theme only
+      // element.stop().animate( { 'background-color': '#272727' }, 500);
+      element.stop().animate( { 'background-color': '#ffffff' }, 500);
       icon.css( 'box-shadow', 'none');
     }
   }
