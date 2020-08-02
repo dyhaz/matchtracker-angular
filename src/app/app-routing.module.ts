@@ -11,6 +11,7 @@ import {CompetitionSingleComponent} from './ui/competition-single/competition-si
 import {MatchComponent} from './ui/match/match.component';
 import {FavoriteComponent} from './ui/favorite/favorite.component';
 import {NotificationTestComponent} from './ui/notification-test/notification-test.component';
+import {LoginComponent} from './ui/login/login.component';
 
 const routes: Routes = [
   { path: 'index', component: IndexComponent},
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'match', component: MatchComponent},
   { path: 'favorite', component: FavoriteComponent},
   { path: 'notifications', component: NotificationTestComponent},
+  { path: 'login', component: LoginComponent},
   { path: '', redirectTo: 'index', pathMatch: 'full'}
 ];
 

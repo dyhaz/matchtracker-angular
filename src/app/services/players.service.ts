@@ -24,4 +24,10 @@ export class PlayersService {
       retrieve(`${this.env.apiUrl}players/${id}`)
     ).pipe(map(response => response.json()));
   }
+
+  getPlayerByName(firstName: string, lastName: string) {
+    return from(
+      retrieve(`${this.env.pushMessageApiUrl}v1/api/players/findOne?_where=(_lastName,like,${lastName})~and(_firstName,like,${firstName})`)
+    ).pipe(map(response => response.json()));
+  }
 }

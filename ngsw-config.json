@@ -6,7 +6,7 @@
       "name": "football-api",
       "version": 1,
       "urls": [
-        "https://api.football-data.org/v2/"
+        "https://api.football-data.org/v2/", "https://cdn.soccerwiki.org/", "dummyimage.com", ",https://pbs.twimg.com/"
       ],
       "cacheConfig": {
         "strategy": "freshness",

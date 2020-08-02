@@ -1,11 +1,11 @@
 <!-- footer -->
 <footer>
   <div class="container">
-    <div class="wrap-logo">
+    <div class="wrap-logo" *ngIf="showQuotes">
       <h3><img (click)="generateQuote()" src="assets/images/logo.png" class="logo-img-footer"
                alt="logo credits: https://www.freepik.com/free-photos-vectors/badge"/></h3>
     </div>
-    <div class="wrap-desc">
+    <div class="wrap-desc" *ngIf="showQuotes">
       <p>{{quote}}</p>
     </div>
     <div class="wrap-social">

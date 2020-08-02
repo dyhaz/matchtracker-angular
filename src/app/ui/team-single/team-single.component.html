@@ -92,30 +92,20 @@
     <div class="row" *ngFor="let squad of team?.squad.slice(0, team?.squad.length / 2 + 0.5); let i = index;">
       <div class="col s6">
         <div class="content">
-          <img [src]="'https://dummyimage.com/600x400/ffffff/000.png&text=' + (team?.squad[( i * 2 )].shirtNumber ?
-          team?.squad[( i * 2 )].shirtNumber : '%20')"
-               alt="{{ team?.squad[( i * 2 )].name }}">
+          <img class="hide-on-large-only" width="300" height="200" [src]="team?.squad[( i * 2 )]?.image"
+               alt="{{ team?.squad[( i * 2 )]?.name }}">
           <div class="text">
-            <a href="javascript:void(0)"><h5>{{ team?.squad[( i * 2 )].name }}</h5></a>
+            <a [href]="team?.squad[( i * 2 )]?.image" target="_blank"><h5>{{ team?.squad[( i * 2 )].name }}</h5></a>
             <span>{{ team?.squad[( i * 2 )].position }}</span>
-<!--            <div class="wrap-social">-->
-<!--              <ul>-->
-<!--                <li><a href=""><i class="fab fa-facebook-f"></i></a></li>-->
-<!--                <li><a href=""><i class="fab fa-twitter"></i></a></li>-->
-<!--                <li><a href=""><i class="fab fa-google"></i></a></li>-->
-<!--                <li><a href=""><i class="fab fa-linkedin-in"></i></a></li>-->
-<!--              </ul>-->
-<!--            </div>-->
           </div>
         </div>
       </div>
       <div class="col s6" [hidden]="team.squad.length == ( i * 2 ) + 1">
         <div class="content">
-          <img [src]="'https://dummyimage.com/600x400/ffffff/000.png&text=' + (team?.squad[( i * 2 ) + 1]?.shirtNumber ?
-          team?.squad[( i * 2 ) + 1]?.shirtNumber : '%20')"
+          <img class="hide-on-large-only" width="300" height="200" [src]="team?.squad[( i * 2 ) + 1]?.image"
                alt="{{ team?.squad[( i * 2 ) + 1]?.name }}">
           <div class="text">
-            <a href="javascript:void(0)"><h5>{{ team?.squad[( i * 2 ) + 1]?.name}}</h5></a>
+            <a [href]="team?.squad[( i * 2 ) + 1]?.image" target="_blank"><h5>{{ team?.squad[( i * 2 ) + 1]?.name}}</h5></a>
             <span>{{ team?.squad[( i * 2 ) + 1]?.position }}</span>
           </div>
         </div>

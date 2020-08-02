@@ -10,7 +10,7 @@ import StringUtils from '../../shared/helpers/string-utils';
 import {NgxIndexedDBService} from 'ngx-indexed-db';
 import {Subscription} from 'rxjs';
 import {MessagingService} from '../../services/messaging.service';
-
+declare var $: any;
 @Component({
   selector: 'app-competition-single',
   templateUrl: './competition-single.component.html'
@@ -84,7 +84,14 @@ export class CompetitionSingleComponent extends AppBaseComponent implements OnIn
           });
 
           if (this.compMatches.length === 0) {
+            /**
+             * Show no match message and hide today's match panel
+             */
             this.message.toggle();
+            setTimeout(() => {
+              $('.circle').hide();
+              $('.counter').hide();
+            }, 100);
           }
         });
       }, () => {

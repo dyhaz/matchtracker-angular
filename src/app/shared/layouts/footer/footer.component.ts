@@ -9,11 +9,15 @@ export class FooterComponent implements AfterViewInit {
   date = new Date();
   env = environment;
   quote = '';
+  showQuotes = false;
 
   constructor() {}
 
   ngAfterViewInit(): void {
-    setTimeout(() => this.generateQuote(), 100);
+    if (!window.location.href.includes('/login')) {
+      setTimeout(() => this.generateQuote(), 100);
+      this.showQuotes = true;
+    }
   }
 
   generateQuote(): void {

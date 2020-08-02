@@ -5,6 +5,7 @@ import {AppBaseComponent} from '../../app.base.component';
 import {TeamsService} from '../../services/teams.service';
 import {AppComponent} from '../../app.component';
 import {NgxIndexedDBService} from 'ngx-indexed-db';
+import {PlayersService} from '../../services/players.service';
 
 @Component({
   selector: 'app-team-single',
@@ -27,6 +28,7 @@ export class TeamSingleComponent extends AppBaseComponent implements OnInit, Aft
               protected activatedRoute: ActivatedRoute,
               protected http: HttpClient,
               protected teamService: TeamsService,
+              protected playersService: PlayersService,
               protected app: AppComponent,
               protected dbService: NgxIndexedDBService) {
     super(router, activatedRoute, http, app, dbService);
@@ -45,6 +47,23 @@ export class TeamSingleComponent extends AppBaseComponent implements OnInit, Aft
           this.alternateImage = val.lead.image ? val.lead.image.urls['800'] : 'assets/images/blog1.jpg';
           this.getMatches(this.team.id);
         });
+      });
+
+      this.team.squad.forEach((squad, key) => {
+        const squadName = squad.name.split(' ');
+        if (squadName.length > 1) {
+          this.playersService.getPlayerByName(squad.name.split(' ')[0].toLowerCase(),
+            squad.name.split(' ')[1].toLowerCase()).subscribe(val => {
+            val.then(squadData => {
+              console.log(squadData);
+              this.team.squad[key].image = squadData[0] && squadData[0]._image ? squadData[0]._image :
+                'https://dummyimage.com/600x400/ffffff/000.png&text=' + (squad.shirtNumber ? squad.shirtNumber : '%20');
+            });
+          });
+        } else {
+          this.team.squad[key].image = 'https://dummyimage.com/600x400/ffffff/000.png&text=' +
+            (squad.shirtNumber ? squad.shirtNumber : '%20');
+        }
       });
     });
 

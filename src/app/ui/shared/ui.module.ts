@@ -36,6 +36,9 @@ import {DateFormatPipe} from '../../shared/pipes/date-format.pipe';
 import {MessagingService} from '../../services/messaging.service';
 import {NotificationTestComponent} from '../notification-test/notification-test.component';
 import {ForceSslPipe} from '../../shared/pipes/force-ssl.pipe';
+import {LoginComponent} from '../login/login.component';
+import {AuthService} from '../../services/auth.service';
+import {FlappyComponent} from '../../shared/components/flappy/flappy.component';
 
 @NgModule({
   imports: [
@@ -69,6 +72,8 @@ import {ForceSslPipe} from '../../shared/pipes/force-ssl.pipe';
     AboutComponent,
     StandingsComponent,
     NotificationTestComponent,
+    FlappyComponent,
+    LoginComponent,
     /**
      * Pipes
      */
@@ -85,7 +90,7 @@ import {ForceSslPipe} from '../../shared/pipes/force-ssl.pipe';
     ShareButtonsComponent
   ],
   providers: [
-    AreasService, TeamsService, PlayersService, MessagingService
+    AreasService, TeamsService, PlayersService, MessagingService, AuthService
   ]
 })
 export class UiModule { }
