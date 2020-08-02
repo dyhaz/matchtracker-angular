@@ -40,9 +40,9 @@ Author URL : https://themeforest.net/user/astylers
 /*general*/
 body {
     font-family: 'Roboto', sans-serif;
-    color: #fafafa;
+    color: #888;
     font-size: 13px;
-    background: #212121;
+    background: #fff;
 }
 
 h1,
@@ -55,7 +55,7 @@ h6 {
     margin: 0;
     font-family: 'Prompt', sans-serif;
     font-weight: 500;
-    color: #fff;
+    color: #333;
 }
 
 h1 {
@@ -83,7 +83,7 @@ h6 {
 }
 
 a {
-    color: #fff;
+    color: #333;
 }
 
 a:focus {
@@ -136,7 +136,7 @@ ul {
 }
 
 .date {
-    color: #fff;
+    color: #888;
     font-size: 11px;
     font-weight: 500;
     margin-bottom: 10px;
@@ -265,7 +265,7 @@ ul {
 /*navbar*/
 .navbar {
     padding: 15px 0 13px;
-    background: #212121;
+    background: #fff;
     position: fixed;
     width: 100%;
     top: 0;
@@ -302,7 +302,7 @@ ul {
 .navbar .content-right i {
     font-size: 16px;
     margin-top: 3px;
-    color: #fff;
+    color: #333;
 }
 
 /*sidebar*/
@@ -327,7 +327,6 @@ ul {
 .sidebar-panel .side-nav {
     width: 260px;
     height: 100%;
-    background: #212121;
 }
 
 .sidebar-panel .collapsible {
@@ -337,7 +336,6 @@ ul {
 .sidebar-panel .side-nav li > a {
     padding: 0 16px;
     font-weight: 500;
-    color: #fff;
 }
 
 .sidebar-panel .side-nav li a > i {
@@ -366,7 +364,7 @@ ul {
 .sidebar-panel .side-nav .collapsible-header {
     display: block;
     font-size: 14px;
-    color: #fff;
+    color: #333;
     font-weight: 500;
     overflow: hidden;
 }
@@ -376,10 +374,6 @@ ul {
     width: 30px;
     text-align: left;
     color: #3f51b5;
-}
-
-.sidebar-panel .side-nav .collapsible-body {
-    background: #212121;
 }
 
 .sidebar-panel .side-nav .collapsible-body li a {
@@ -404,6 +398,7 @@ ul {
 
 .slide .content {
     height: 230px;
+    background: #fff;
     position: relative;
     border-radius: 15px;
 }
@@ -520,7 +515,7 @@ ul {
     text-align: center;
     padding: 15px;
     border-radius: 15px;
-    background: #272727;
+    background: #fff;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.11);
     cursor: pointer;
 }
@@ -611,7 +606,6 @@ ul {
 
 .popular-course .content .text h4 {
     margin-bottom: 10px;
-    color: #333;
 }
 
 .popular-course .owl-theme .owl-nav.disabled + .owl-dots {
@@ -645,7 +639,7 @@ ul {
     margin: 20px;
     border-radius: 15px;
     padding: 20px;
-    background: #272727;
+    background: #fff;
 }
 
 @media only screen and (min-width:993px) {
@@ -810,8 +804,8 @@ ul {
 }
 
 .course-single .wrap-tabs .tabs {
-    border: 1px solid #333;
-    background: #272727;
+    border: 1px solid #eee;
+    background: #fafafa;
     border-radius: 5px;
 }
 
@@ -825,7 +819,7 @@ ul {
 
 .course-single .wrap-tabs .tabs .tab a {
     font-weight: 600;
-    color: #fff;
+    color: #333;
 }
 
 .course-single .tabs .indicator {
@@ -854,7 +848,7 @@ ul {
 }
 
 .course-single .wrap-info .content-left span {
-    color: #999;
+    color: #666;
 }
 
 .course-single .wrap-info .content-left span i {
@@ -866,7 +860,7 @@ ul {
 
 .course-single .wrap-info .content-right span {
     display: block;
-    color: #fff;
+    color: #333;
     font-weight: 500;
 }
 
@@ -894,12 +888,12 @@ ul {
 }
 
 .course-single .wrap-schedule .collapsible-header span {
-    color: #999;
+    color: #333;
     margin-left: 5px;
 }
 
 .course-single .wrap-schedule .collapsible-header.active {
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid #eee;
 }
 
 .course-single .wrap-schedule .collapsible.popout > li {
@@ -1002,11 +996,6 @@ ul {
 .teacher .content img {
     width: 100%;
     border-radius: 15px;
-}
-
-.emblem {
-  padding: 2em 2em 2em 2em;
-  background-color: white;
 }
 
 .teacher .content .text {
@@ -1130,7 +1119,7 @@ ul {
 
 .teacher-single .text .info ul li {
     margin-bottom: 10px;
-    color: #999;
+    color: #333;
 }
 
 .teacher-single .text .info ul li i {
@@ -1144,8 +1133,8 @@ ul {
 }
 
 .teacher-single .wrap-tabs .tabs {
-    border: 1px solid #333;
-    background: #272727;
+    border: 1px solid #eee;
+    background: #fafafa;
     border-radius: 5px;
 }
 
@@ -1159,7 +1148,7 @@ ul {
 
 .teacher-single .wrap-tabs .tabs .tab a {
     font-weight: 600;
-    color: #fff;
+    color: #333;
 }
 
 .teacher-single .tabs .indicator {
@@ -1194,7 +1183,7 @@ ul {
 }
 
 .teacher-single .wrap-education .collapsible-header.active {
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid #eee;
 }
 
 .teacher-single .wrap-education .collapsible.popout > li {
@@ -1317,7 +1306,7 @@ ul {
     text-align: center;
     padding: 10px;
     border-radius: 15px;
-    background: #272727;
+    background: #fff;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.11);
     display: block !important;
     height: 103px;
@@ -1338,14 +1327,14 @@ ul {
 }
 
 .event-single .wrap-tabs .tabs {
-    background: #272727;
-    border: 1px solid #333;
+    background: #fafafa;
+    border: 1px solid #eee;
     border-radius: 5px;
 }
 
 .event-single .wrap-tabs .tabs .tab a {
     font-weight: 600;
-    color: #fff;
+    color: #333;
 }
 
 .event-single .wrap-tabs .tabs .indicator {
@@ -1402,17 +1391,13 @@ div > .tabs {
     width: 20px;
 }
 
-.event-single .wrap-tabs .content-tabs .wrap-info .wrap-list .row .content-left span {
-    color: #999;
-}
-
 .event-single .wrap-tabs .content-tabs .wrap-info .wrap-list .row .content-right span {
-    color: #fff;
+    color: #333;
     font-weight: 500;
 }
 
 .event-single .wrap-tabs .content-tabs .wrap-info .wrap-list .row .content-right ul li {
-    color: #fff;
+    color: #333;
     font-weight: 500;
 }
 
@@ -1580,8 +1565,8 @@ div > .tabs {
 .blog-single .content-tag ul li {
     display: inline-block;
     padding: 2px 12px;
-    background: #272727;
-    border: 1px solid #333;
+    background: #fafafa;
+    border: 1px solid #eee;
     margin-right: 5px;
     margin-bottom: 8px;
     border-radius: 15px;
@@ -1595,7 +1580,6 @@ div > .tabs {
     margin-top: 19px;
     padding: 15px;
     border-radius: 10px;
-    background: #272727;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.11);
 }
 
@@ -1695,7 +1679,7 @@ div > .tabs {
     text-align: center;
     padding: 10px;
     border-radius: 15px;
-    background: #272727;
+    background: #fff;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.11);
     cursor: pointer;
     display: block !important;
@@ -1714,7 +1698,7 @@ div > .tabs {
 
 /*counter*/
 .counter {
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../images/stadium1.jpg);
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../images/slider1.jpg);
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -1823,7 +1807,7 @@ div > .tabs {
 .pricing-table .content {
     padding: 15px;
     text-align: center;
-    background: #272727;
+    background: #fff;
     border-radius: 15px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.11);
 }
@@ -1856,7 +1840,7 @@ div > .tabs {
 
 .pricing-table .content .wrap-list ul li {
     margin-bottom: 5px;
-    color: #fff;
+    color: #333;
 }
 
 .pricing-table .content .wrap-list ul li:last-child {
@@ -2034,7 +2018,7 @@ div > .tabs {
 
 .login .social-login .social-twitter {
   padding: 10px;
-  background: #00acee;
+  background: #dd4b39;
   text-align: center;
   border-radius: 30px;
 }
@@ -2076,7 +2060,7 @@ div > .tabs {
     width: 100px;
     height: 100px;
     line-height: 115px;
-    background: #272727;
+    background: #fff;
     border-radius: 15px;
     margin-bottom: 20px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.11);
@@ -2122,8 +2106,7 @@ div > .tabs {
     width: 30px;
     height: 30px;
     line-height: 30px;
-    background: #333;
-    color: #fff;
+    background: #eee;
     border-radius: 50%;
 
     /* Update: 03-07-2020 */
@@ -2144,7 +2127,7 @@ form label.active {
 }
 
 form input {
-    background: #333 !important;
+    background: #f3f3f3 !important;
     border-radius: 2px !important;
     border: 0 !important;
     height: 2.5rem !important;
@@ -2160,7 +2143,7 @@ form input[type="file"] {
 }
 
 form textarea {
-    background: #333 !important;
+    background: #f3f3f3 !important;
     border: 0 !important;
     padding: 10px 20px !important;
     box-sizing: border-box !important;
@@ -2189,25 +2172,25 @@ form select {
 ::-webkit-input-placeholder {
 
     /* Chrome/Opera/Safari */
-    color: #999;
+    color: #555;
 }
 
 ::-moz-placeholder {
 
     /* Firefox 19+ */
-    color: #999;
+    color: #555;
 }
 
 :-ms-input-placeholder {
 
     /* IE 10+ */
-    color: #999;
+    color: #555;
 }
 
 :-moz-placeholder {
 
     /* Firefox 18- */
-    color: #999;
+    color: #555;
 }
 
 /*footer*/
@@ -2267,7 +2250,7 @@ footer .footer-text {
     padding-top: 16px;
     margin-top: 27px;
     text-align: center;
-    border-top: 1px solid #fafafa;
+    border-top: 1px solid #eee;
     color: #fff;
 }
 
