@@ -41,19 +41,21 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - Navigate to `http://localhost:18080/`.
 
 ##### Build
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Run `npm run build:pwa:web` to generate the service worker file.
+
+Run `npm run start:web:prod` to build the project then serve everything with caching disabled. The build artifacts will be stored in the `dist/` directory.
 
 Or you can check the [live version] without install.
 
 ## Test the Push Notification
 - Pick any competition then click on the notification button.
-![image1](image1.jpg)
+![image1](src/assets/images/image1.jpg)
 
 - Wait until the success alert is presented.
-![image2](image2.jpg)
+![image2](src/assets/images/image2.jpg)
 
 - Navigate to http://localhost:18080/notifications (or https://www.matchtracker.site/notifications/) then click on the PUSH button.
-![image3](image3.jpg)
+![image3](src/assets/images/image3.jpg)
 
 - Congrats! You have a new notification.
 
@@ -65,7 +67,6 @@ ToDo
    [live version]: <https://www.matchtracker.site>
    [football-data API]: <https://www.football-data.org/>
    [markdown-it]: <https://github.com/markdown-it/markdown-it>
-   [Ace Editor]: <http://ace.ajax.org>
    [node.js]: <http://nodejs.org>
    [Twitter Bootstrap]: <http://twitter.github.com/bootstrap/>
    [jQuery]: <http://jquery.com>
