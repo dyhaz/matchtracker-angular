@@ -18,7 +18,7 @@ const YEAR_IN_SECONDS = DAY_IN_SECONDS * 365;
 /**
  * The current version of the service worker.
  */
-const SERVICE_WORKER_VERSION = '1.0.0';
+const SERVICE_WORKER_VERSION = '1.0.1';
 
 if (DEBUG_MODE) {
   // tslint:disable-next-line:no-console
@@ -43,7 +43,9 @@ if (DEBUG_MODE) {
   console.trace(`${componentName}:: Assets that will be cached: `, assetsToCache);
 }
 
-precacheAndRoute(assetsToCache);
+precacheAndRoute(assetsToCache, {
+  ignoreURLParametersMatching : [/.*/]
+});
 
 // -------------------------------------------------------------
 // Routes
