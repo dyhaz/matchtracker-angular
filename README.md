@@ -1,18 +1,12 @@
 <p align="center">
-  <a href="https://www.matchtracker.site/">
-    <img src="https://www.matchtracker.site/assets/icons/icon-192x192.png" alt="MatchTracker logo" width="200" height="200">
-  </a>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/b/bf/Employment_icon.png" alt="employee management logo" width="200" height="200">
 </p>
 
-<h3 align="center">MatchTracker</h3>
+<h3 align="center">Employee Management System</h3>
 
-# MatchTracker (Dicoding Submission)
+# About
 
-MatchTracker is a dynamic HTML site that makes it easier for you to get the game information including live scores, match results, teams and league tables from the top football leagues and competitions.
-
-  - Competitions
-  - Match updates
-  - Favorite teams and leagues
+Employee Management System is a dynamic HTML site that makes it easier for you to manage the employee information.
 
 ## Table of contents
 
@@ -44,20 +38,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 Run `npm run build:pwa:web` to generate the service worker file.
 
 Run `npm run start:web:prod` to build the project then serve everything with caching disabled. The build artifacts will be stored in the `dist/` directory.
-
-Or you can check the [live version] without install.
-
-## Test the Push Notification
-- Pick any competition then click on the notification button.
-![image1](src/assets/images/image1.jpg)
-
-- Wait until the success alert is presented.
-![image2](src/assets/images/image2.jpg)
-
-- Navigate to http://localhost:18080/notifications (or https://www.matchtracker.site/notifications/) then click on the PUSH button.
-![image3](src/assets/images/image3.jpg)
-
-- Congrats! You have a new notification.
 
 ## Copyright and license
 ToDo

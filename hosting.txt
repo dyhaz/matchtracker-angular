@@ -1,3 +1,0 @@
-Link menuju Firebase Hosting:
-
-https://pushnotifku.web.app/
