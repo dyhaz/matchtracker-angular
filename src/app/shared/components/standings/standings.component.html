@@ -18,7 +18,7 @@
         <td style="height: 40px"><p class="valign-wrapper hide-on-med-and-down">
           <img style="width: 30px !important; height: 30px !important;" src="{{ standing.team.crestUrl | forceSsl }}"
                alt="{{ truncate(standing.team.name, 10) }}"/>&nbsp;
-          <a href="javascript:void(0)" (click)="navigate('/team/' + standing.team.id)">
+          <a href="javascript:void(0)" (click)="navigate('/user/' + standing.team.id)">
             {{ truncate(standing.team.name.replace(' FC', '').trim(), 20) }}</a></p>
 
           <div class="row" style="margin-bottom: 0">

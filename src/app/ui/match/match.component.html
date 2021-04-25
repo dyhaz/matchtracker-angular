@@ -21,8 +21,8 @@
                   <h3 [innerHTML]="getGoals(match).homeTeam"></h3>
                 </div>
                 <div class="col s10">
-                  <!--home team name-->
-                  <a href="javascript:void(0)" (click)="navigate('/team/' + match.homeTeam.id)">
+                  <!--home user name-->
+                  <a href="javascript:void(0)" (click)="navigate('/user/' + match.homeTeam.id)">
                     <h3>{{ truncate(match.homeTeam.name, 20) }}</h3>
                   </a>
                 </div>
@@ -34,8 +34,8 @@
                   <h3 [innerHTML]="getGoals(match).awayTeam"></h3>
                 </div>
                 <div class="col s10">
-                  <!--away team name-->
-                  <a href="javascript:void(0)" (click)="navigate('/team/' + match.awayTeam.id)">
+                  <!--away user name-->
+                  <a href="javascript:void(0)" (click)="navigate('/user/' + match.awayTeam.id)">
                     <h3>{{ truncate(match.awayTeam.name, 20)}}</h3>
                   </a>
                 </div>

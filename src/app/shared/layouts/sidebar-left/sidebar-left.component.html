@@ -12,25 +12,26 @@
     <li>
       <a href="/"><i class="fas fa-home"></i>Home</a>
     </li>
-    <li><a href="javascript:void(0)" (click)="navigate('/favorite')"><i class="fas fa-heart"></i>Favorites</a></li>
-    <li>
-      <div class="collapsible-header">
-        <i class="fas fa-medal"></i>Competition<span><i class="fas fa-angle-right right"></i></span>
-      </div>
-      <div class="collapsible-body">
-        <ul>
-          <li><a href="javascript:void(0)" (click)="navigate('/competition')">Competition</a></li>
-          <li><a href="javascript:void(0)" (click)="navigate('/competition/' + 2001)">Champions League</a></li>
-          <li><a href="javascript:void(0)" (click)="navigate('/competition/' + 2002)">Bundesliga</a></li>
-          <li><a href="javascript:void(0)" (click)="navigate('/competition/' + 2003)">Eredivisie</a></li>
-          <li><a href="javascript:void(0)" (click)="navigate('/competition/' + 2021)">Premier League</a></li>
-          <li><a href="javascript:void(0)" (click)="navigate('/competition/' + 2014)">La Liga</a></li>
-          <li><a href="javascript:void(0)" (click)="navigate('/competition/' + 2015)">France Ligue</a></li>
-        </ul>
-      </div>
-    </li>
-    <li><a href="javascript:void(0)" (click)="navigate('/match')"><i class="fas fa-globe"></i>Matches</a></li>
-    <li><a href="javascript:void(0)" (click)="navigate('/team')"><i class="fas fa-user-circle"></i>Teams</a></li>
+    <li><a href="javascript:void(0)" (click)="navigate('/employee')"><i class="fas fa-users"></i>Employees</a></li>
+<!--    <li><a href="javascript:void(0)" (click)="navigate('/favorite')"><i class="fas fa-heart"></i>Favorites</a></li>-->
+<!--    <li>-->
+<!--      <div class="collapsible-header">-->
+<!--        <i class="fas fa-medal"></i>Competition<span><i class="fas fa-angle-right right"></i></span>-->
+<!--      </div>-->
+<!--      <div class="collapsible-body">-->
+<!--        <ul>-->
+<!--          <li><a href="javascript:void(0)" (click)="navigate('/competition')">Competition</a></li>-->
+<!--          <li><a href="javascript:void(0)" (click)="navigate('/competition/' + 2001)">Champions League</a></li>-->
+<!--          <li><a href="javascript:void(0)" (click)="navigate('/competition/' + 2002)">Bundesliga</a></li>-->
+<!--          <li><a href="javascript:void(0)" (click)="navigate('/competition/' + 2003)">Eredivisie</a></li>-->
+<!--          <li><a href="javascript:void(0)" (click)="navigate('/competition/' + 2021)">Premier League</a></li>-->
+<!--          <li><a href="javascript:void(0)" (click)="navigate('/competition/' + 2014)">La Liga</a></li>-->
+<!--          <li><a href="javascript:void(0)" (click)="navigate('/competition/' + 2015)">France Ligue</a></li>-->
+<!--        </ul>-->
+<!--      </div>-->
+<!--    </li>-->
+<!--    <li><a href="javascript:void(0)" (click)="navigate('/match')"><i class="fas fa-globe"></i>Matches</a></li>-->
+<!--    <li><a href="javascript:void(0)" (click)="navigate('/user')"><i class="fas fa-user-circle"></i>Teams</a></li>-->
     <li><a href="https://www.linkedin.com/in/mrach/" target="_blank"><i class="fas fa-envelope"></i>Contact</a></li>
     <li *ngIf="name === 'Guest'"><a href="javascript:void(0)" (click)="navigate('/login')">
       <i class="fas fa-sign-in-alt"></i>Login</a></li>

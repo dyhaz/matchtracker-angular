@@ -33,7 +33,7 @@ module.exports = {
   },
   plugins: [
     new WebpackPwaManifest({
-      name: 'MatchTracker Online Match Updates',
+      name: 'EMS',
       short_name: 'MatchTracker',
       description: 'My awesome Progressive Web App!',
       background_color: '#ffffff',

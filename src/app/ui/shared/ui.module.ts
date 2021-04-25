@@ -16,11 +16,9 @@ import {AreasService} from '../../services/areas.service';
 import {AreaComponent} from '../area/area.component';
 import {TeamsService} from '../../services/teams.service';
 import {PlayersService} from '../../services/players.service';
-import {TeamComponent} from '../team/team.component';
 import {SweetAlert2Module} from '@sweetalert2/ngx-sweetalert2';
 import {CircularSpinnerComponent} from '../../shared/components/spinner/circular-spinner.component';
 import {IsEmptyPipe} from '../../shared/pipes/is-empty.pipe';
-import {TeamSingleComponent} from '../team-single/team-single.component';
 import {CompetitionComponent} from '../competition/competition.component';
 import {CompetitionSingleComponent} from '../competition-single/competition-single.component';
 import {HourFormatPipe} from '../../shared/pipes/hour-format.pipe';
@@ -39,6 +37,9 @@ import {ForceSslPipe} from '../../shared/pipes/force-ssl.pipe';
 import {LoginComponent} from '../login/login.component';
 import {AuthService} from '../../services/auth.service';
 import {FlappyComponent} from '../../shared/components/flappy/flappy.component';
+import {EmployeeComponent} from '../ems/employee/employee.component';
+import {EmployeeSingleComponent} from '../ems/employee-single/employee-single.component';
+import {EmployeeService} from '../../services/employee.service';
 
 @NgModule({
   imports: [
@@ -55,8 +56,6 @@ import {FlappyComponent} from '../../shared/components/flappy/flappy.component';
     BlogComponent,
     BlogSingleComponent,
     AreaComponent,
-    TeamComponent,
-    TeamSingleComponent,
     CompetitionComponent,
     CompetitionSingleComponent,
     MatchComponent,
@@ -74,6 +73,8 @@ import {FlappyComponent} from '../../shared/components/flappy/flappy.component';
     NotificationTestComponent,
     FlappyComponent,
     LoginComponent,
+    EmployeeComponent,
+    EmployeeSingleComponent,
     /**
      * Pipes
      */
@@ -90,7 +91,7 @@ import {FlappyComponent} from '../../shared/components/flappy/flappy.component';
     ShareButtonsComponent
   ],
   providers: [
-    AreasService, TeamsService, PlayersService, MessagingService, AuthService
+    EmployeeService, AreasService, TeamsService, PlayersService, MessagingService, AuthService
   ]
 })
 export class UiModule { }

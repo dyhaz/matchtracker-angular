@@ -1,0 +1,28 @@
+<div class="event segments-page">
+  <div class="container">
+    <div class="content">
+
+    </div>
+    <div class="content">
+      <div class="content-head">
+        <input #FileSelectInputDialog type="file" accept="image/x-png,image/gif,image/jpeg" style="display: none"/>
+        <img (click)="openFileDialog()" class="responsive-img" src="{{user.avatar}}" alt="user avatar" />
+      </div>
+      <div class="comment-form" style="margin-top: 20px">
+        <div class="wrap-title">
+          <h5>{{firstName + ' ' + lastName}}</h5>
+        </div>
+        <form>
+          <input type="text" placeholder="First Name" name="first_name" [(ngModel)]="user.first_name">
+          <input type="text" placeholder="Last Name" name="last_name" [(ngModel)]="user.last_name">
+          <input type="email" placeholder="Email" name="email" [(ngModel)]="user.email">
+
+          <select name="position" style="display: flex" [(ngModel)]="position">
+            <option *ngFor="let p of cmbPosition" value="{{p.id}}">{{p.label}}</option>
+          </select>
+          <button class="button" (click)="save()">Submit</button>&nbsp;&nbsp;<div *ngIf="user.id" (click)="delete()" class="btn-floating bg-red waves-effect waves-light waves-ripple"><i class="fa fa-trash"></i></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

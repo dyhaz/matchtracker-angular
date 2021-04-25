@@ -1,7 +1,7 @@
 export function migrationFactory() {
   return {
     1: (db, transaction) => {
-      const store = transaction.objectStore('team');
+      const store = transaction.objectStore('user');
       store.createIndex('id', 'id', { unique: true });
     },
     2: (db, transaction) => {
@@ -13,10 +13,10 @@ export function migrationFactory() {
 
 export const defaultEnv = {
   social: {
-    facebook: 'https://facebook.com/dicoding',
-    instagram: 'https://instagram.com/dicoding',
+    facebook: 'https://facebook.com/',
+    instagram: 'https://instagram.com/',
     google: '',
-    twitter: 'https://twitter.com/dicoding',
+    twitter: 'https://twitter.com/',
     youtube: 'https://youtube.com/channel/UCM6BWkgiGrCHG967i_PyMiw',
   },
 
@@ -28,7 +28,7 @@ export const defaultEnv = {
     name: 'MatchTrackerDb',
     version: 2,
     objectStoresMeta: [{
-      store: 'team',
+      store: 'user',
       storeConfig: { keyPath: 'id', autoIncrement: true },
       storeSchema: [
         { name: 'id', keypath: 'id', options: { unique: true } },

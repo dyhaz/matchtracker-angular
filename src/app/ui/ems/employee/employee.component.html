@@ -1,0 +1,37 @@
+<div class="event segments-page">
+  <div class="container">
+    <div class="content" style="margin-top: 20px">
+      <form class="search">
+        <input [(ngModel)]="searchText" type="text" placeholder="Search..." name="search">
+        <button type="submit" class="btn-flat" (click)="filter()"><i class="fa fa-search"></i></button>
+      </form>
+    </div>
+    <div class="content">
+      <div title="Add new employee" (click)="navigate('/employee/new')" class="btn-floating bg-blue waves-effect waves-light waves-ripple">
+        <i class="fas fa-plus"></i>
+      </div>
+    </div>
+    <div class="content" *ngFor="let user of listUsers.data; let i = index">
+      <div class="image-frame hide-on-large-only"><img src="{{user.avatar ? (user.avatar | forceSsl) : 'assets/images/event1.jpg'}}" alt="{{user.first_name}}"></div>
+      <div class="hide-on-med-and-down show-on-large">
+        <div class="row">
+          <div class="col s4 offset-s4">
+            <img style="width: 100% !important;" src="{{user.avatar ? (user.avatar | forceSsl) : 'assets/images/event1.jpg'}}" alt="{{user.first_name}}">
+          </div>
+        </div>
+      </div>
+      <div class="text">
+        <h4><a href="javascript:void(0)" (click)="navigate('/employee/' + user.id)">{{user.first_name + ' ' + user.last_name}}</a></h4>
+        <p class="date valign-wrapper">
+          <span><i class="fas fa-envelope"></i><a href="mailto:{{user.email}}" target="_blank">{{user.email}}</a></span>
+          </p>
+        <p><app-spinner [isActive]="descs[i] | isEmpty"></app-spinner>{{truncate(descs[i])}}</p>
+      </div>
+    </div>
+    <div class="pagination">
+      <li *ngFor="let page of pages" class="{{ page == currentPage + 1 ? 'disabled' : ''}}">
+        <a href="javascript:void(0)" (click)="goToPage(page)"
+           class="{{ page == currentPage + 1 ? 'active' : ''}}">{{ page }}</a></li>
+    </div>
+  </div>
+</div>

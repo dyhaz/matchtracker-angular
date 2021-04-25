@@ -99,7 +99,7 @@
         <div class="row valign-wrapper timeline-team-name">
           <div class="col s6">
             <div class="content">
-              <h4 (click)="navigate('/team/' + match.awayTeam.id)">
+              <h4 (click)="navigate('/user/' + match.awayTeam.id)">
                 {{ match.awayTeam.shortName }}
                 <div [hidden]="match.status !== 'FINISHED'">
                   {{ match.score.fullTime.awayTeam }}
@@ -109,7 +109,7 @@
           </div>
           <div class="col s6">
             <div class="content">
-              <h4 (click)="navigate('/team/' + match.homeTeam.id)">
+              <h4 (click)="navigate('/user/' + match.homeTeam.id)">
                 {{ match.homeTeam.shortName }}
                 <div [hidden]="match.status !== 'FINISHED'">
                   {{ match.score.fullTime.homeTeam }}

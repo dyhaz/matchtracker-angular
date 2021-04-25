@@ -37,7 +37,7 @@ export class FavoriteComponent extends AppBaseComponent implements OnInit, After
       });
     }, 100);
 
-    this.dbService.getAll('team').then(val => {
+    this.dbService.getAll('user').then(val => {
       this.listTeam = val;
       val.forEach((team: any, key) => {
         this.teamDescs[key] = team.description;

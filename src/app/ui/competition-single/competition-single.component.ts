@@ -102,7 +102,7 @@ export class CompetitionSingleComponent extends AppBaseComponent implements OnIn
 
   fetchTeamLogo(match: any): void {
     /**
-     * Fetch team logo
+     * Fetch user logo
      */
     if (!match.awayTeam.crestUrl) {
       this.teamService.getTeam(match.awayTeam.id).subscribe(res2 => {

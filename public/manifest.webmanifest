@@ -1,6 +1,6 @@
 {
-  "name": "MatchTracker",
-  "short_name": "MatchTracker",
+  "name": "EMS",
+  "short_name": "EMS",
   "theme_color": "#d28400",
   "background_color": "#fafafa",
   "display": "standalone",

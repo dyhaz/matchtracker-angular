@@ -100,7 +100,7 @@ export class MatchComponent extends AppBaseComponent implements OnInit, AfterVie
 
   fetchTeamLogo(match: any): void {
     /**
-     * Fetch team logo
+     * Fetch user logo
      */
     if (!match.awayTeam.crestUrl) {
       this.teamService.getTeam(match.awayTeam.id).subscribe(res2 => {

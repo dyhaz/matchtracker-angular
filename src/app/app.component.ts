@@ -41,6 +41,10 @@ export class AppComponent implements OnInit {
     }
   }
 
+  public hideLoading() {
+    Swal.close();
+  }
+
   public showShareButtons(content?: string) {
     content = content.replace(/'/g, '’');
     Swal.fire({
